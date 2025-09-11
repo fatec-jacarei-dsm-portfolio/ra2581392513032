@@ -191,6 +191,8 @@ body::after {
   min-width: 300px;
 
   background-color: rgba(48, 48, 48, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 2px solid var(--color-accent-primary);
   padding: 30px;
   border-radius: 12px;
@@ -318,7 +320,11 @@ body.theme-red-cyan {
 /* Switch 3 */
 body.theme-yellow-green-indigo {
   --color-accent-primary: #C9F607;
-  --color-accent-secondary: #7101CC;
+  --color-accent-secondary: #d069f0;
+}
+
+body.theme-yellow-green-indigo .portfolio-nav a:hover{
+  color: black;
 }
 
 /* Define quais elementos devem ter uma transição suave ao trocar de tema */
@@ -364,6 +370,10 @@ body::-webkit-scrollbar-thumb {
 #sobre ul strong,
 .theme-subtitle strong {
   color: var(--color-accent-secondary);
+}
+
+#sobre ul li {
+  text-align: left;
 }
 
 /* Marcadores (bolinhas) da lista de habilidades */
