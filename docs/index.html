@@ -1,11 +1,125 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+
+    <head>
     <meta charset="UTF-8">
-    <title>Portfólio - NICOLAS KAUE SILVA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio</title>
+    <link rel="stylesheet" href="styles/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-    <h1>Bem vindo ao Portfólio de NICOLAS KAUE SILVA</h1>
-</body>
+
+    <body>
+
+        <header class="portfolio-nav">
+            <a href="#home">Início</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#contato">Contato</a>
+
+            <button id="theme-switcher" class="theme-button" aria-label="Mudar tema de cores">
+    <i class="fas fa-palette"></i> </button>
+        </header>
+
+        <main>
+
+            <section id="home" class="portfolio-panel">
+                <h1>Olá, eu sou o Nicolas</h1>
+                <p>Estudante de Desenvolvimento de Software, aspirante a desenvolvedor fullstack!</p>
+            </section>
+
+            <section id="sobre" class="portfolio-panel">
+                <h2>Sobre Mim</h2>
+                <p>No segundo semestre da minha jornada acadêmica, venho aprimorando minhas habilidades na criação de
+                    experiências digitais completas. Minha trajetória começou com o desenvolvimento frontend, onde aprendi a
+                    dar vida a layouts e a criar interfaces que fluem de forma intuitiva para o usuário.</p><br>
+
+                <p>Atualmente, meu foco se expandiu para o backend, onde a complexidade e a arquitetura de dados me atraem
+                    particularmente. Tenho um grande interesse em sistemas de gerenciamento e manipulação de informações,
+                    vendo a base de dados como a espinha dorsal de qualquer aplicação robusta e eficiente.</p><br>
+
+                <p>Além da minha formação, tive a oportunidade de vivenciar um ambiente corporativo utilizando o sistema SAP
+                    para realizar consultas, entradas e atualizações de dados. Essa experiência me proporcionou uma base sólida
+                    em atenção aos detalhes e na compreensão da dinâmica de sistemas empresariais complexos.</p><br>
+
+                <p class="skills-intro">Conhecimento em linguagens, frameworks e tecnologias:</p>
+                <ul>
+                    <li><strong>Linguagens:</strong> Base sólida em JavaScript e TypeScript, com compreensão dos conceitos de Programação Orientada a Objetos (POO).</li>
+                    <li><strong>Marcação:</strong> HTML e CSS, e atualmente em estudo de XML (com foco em JSX/TSX).</li>
+                    <li><strong>Banco de Dados:</strong> Conhecimento em modelagem e manipulação de dados com SQL, com experiência prática em PostgreSQL.</li>
+                    <li><strong>Metodologias e Ferramentas:</strong> SCRUM, DBdesign4, Figma, UML, Git/GitHub, Node.js, Express.</li>
+
+</li>
+                </ul>
+            </section>
+
+            <section id="projetos" class="portfolio-panel">
+                <h2>Meus Projetos</h2>
+                <div class="project-list-container">
+                    <div class="project-card">
+                        <h3>Horários Fatec</h3>
+
+                        <p><Strong>Em primeiro lugar da feira de Tecnologia 2025.1 | Fatec Jacareí</Strong></p><br>
+
+                        <p>Projeto full-stack desenvolvido no primeiro semestre, onde atuei em todas as fases do ciclo de vida do software,
+                            desde a análise de requisitos até a implementação. Fui o principal responsável pela criação e modelagem do banco de dados em PostgreSQL.
+                            Desenvolvi a API de comunicação com o backend utilizando Node.js e Express, implementando funções assíncronas (async/await) para o tratamento
+                            eficiente das informações. Também participei do desenvolvimento da interface com HTML e CSS.</p><br>
+
+                        <p class="theme-subtitle"><strong>Tecnologias utilizadas:</strong> PostgreSQL, Node.js, Express, HTML, CSS.</p>
+                        <div class="repo-link">
+                            <a href="https://github.com/techcastlefatec/horarios-fatec" target="_blank">
+                                <i class="fab fa-github"></i> Ver Repositório
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Duvy</h3>
+                        <p>Aplicação web full-stack de galeria pessoal, criada para armazenar e compartilhar conteúdos como fotos,
+                            poemas e desenhos. O projeto inclui o desenvolvimento de uma API REST com Node.js e Express , gerenciamento de banco de dados
+                            com PostgreSQL , e um sistema de permissões para múltiplos usuários. Concebido como um modelo-base modular e reutilizável,
+                            com funcionalidades opcionais como autenticação e exportação para PDF.</p><br>
+
+                        <p class="theme-subtitle"><strong>Tecnologias utilizadas:</strong> PostgreSQL, Node.js, Express, HTML, CSS.</p><br>
+
+                        <div class="repo-link">
+                            <a href="https://github.com/Nicolas-KS24/Duvy" target="_blank">
+                                <i class="fab fa-github"></i> Ver Repositório
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contato" class="portfolio-panel">
+                <h2>Entre em Contato</h2>
+                <p>Estou em busca de oportunidades para aplicar e expandir minhas habilidades. Ficarei feliz em colaborar em
+                    novos projetos.</p>
+                <ul class="contact-links">
+                    <li>
+                        <a href="mailto:Nmpg2401@outlook.com">
+                            <i class="fas fa-envelope"></i>
+                            <span>E-mail</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/nicolas-silva-devcode" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Nicolas-KS24" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+        </main>
+        <script src="scripts/theme-switcher.js" defer></script>
+    </body>
+
 </html>

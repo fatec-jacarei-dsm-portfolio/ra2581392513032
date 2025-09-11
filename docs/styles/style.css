@@ -1,0 +1,403 @@
+/* Style global, configuração
+    regras básicas para toda a página */
+
+/* Reset básico para garantir consistência entre navegadores */
+* {
+  margin: 0;
+  padding: 0;
+  /* Garante que padding e bordas não aumentem o tamanho final do elemento */
+  box-sizing: border-box;
+}
+
+/* Variáveis CSS para centralizar cores e valores reutilizáveis */
+:root {
+  --color-base: #303030;
+  --color-accent-primary: #c800ff;
+  --color-accent-secondary: #00ff00;
+  --color-text: #EDEDED;
+  --color-subtle-lines: #737373;
+  --nav-height: 80px;
+}
+
+html {
+  /* Anima a rolagem ao clicar em um link âncora (ex: <a href="#sobre">) */
+  scroll-behavior: smooth;
+  /* Cria um espaçamento no topo ao rolar para uma âncora, evitando que o menu fixo cubra o título */
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--color-text);
+  /* Define o espaçamento entre linhas como 1.6x o tamanho da fonte, para melhor legibilidade */
+  line-height: 1.6;
+
+  background-color: var(--color-base);
+  background-image: url('hexagon.svg');
+  background-size: 20px 34.64px;
+  /* Mantém a imagem de fundo fixa, criando um efeito de paralaxe ao rolar */
+  background-attachment: fixed;
+  /* Necessário para que o pseudo-elemento ::after se posicione corretamente em relação ao body */
+  position: relative;
+}
+
+/* Estilização da barra de rolagem (para navegadores baseados em WebKit) */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--color-base);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent-secondary);
+  border-radius: 4px;
+}
+
+/* Pseudo-elemento que cria uma sombra interna (efeito vinheta) sobre toda a página */
+body::after {
+  /* Pseudo-elementos precisam da propriedade 'content', mesmo que vazia */
+  content: '';
+  /* Fixa o elemento na tela, para que ele não role com o conteúdo */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* A sombra 'inset' é projetada para dentro do elemento */
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.9);
+  /* Impede que este elemento bloqueie cliques nos elementos abaixo dele */
+  pointer-events: none;
+  /* Coloca o pseudo-elemento atrás de todo o conteúdo da página */
+  z-index: -1;
+}
+
+
+/* Layout e navegação
+    Controle de estrutura de rolagem, posição da barra de navegação */
+
+/* Style dos páineis (section) */
+.portfolio-panel {
+  /* Cada seção ocupará no mínimo 100% da altura da tela (viewport height) */
+  min-height: 100vh;
+  width: 100%;
+
+  /* Centraliza todo o conteúdo da seção tanto na vertical quanto na horizontal */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  /* Espaçamento interno para o conteúdo não colar nas bordas */
+  padding: 60px 40px;
+}
+
+/* Barra de navegação fixa */
+.portfolio-nav {
+  /* Fixa o menu no topo da tela, independente da rolagem */
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  /* Truque para centralizar horizontalmente um elemento de posição fixa/absoluta */
+  transform: translateX(-50%);
+  /* Garante que o menu fique acima de todos os outros elementos da página */
+  z-index: 100;
+
+  display: flex;
+  gap: 15px;
+
+  /* Efeito de "vidro fosco" para o fundo do menu */
+  background-color: rgba(48, 48, 48, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* Prefixo para compatibilidade com Safari */
+
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Links da navegação */
+.portfolio-nav a {
+  padding: 12px 25px;
+  background-color: var(--color-accent-secondary);
+  color: var(--color-base);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+  /* Transforma todo o texto em maiúsculas */
+  text-transform: uppercase;
+  /* Adiciona um pequeno espaçamento entre as letras */
+  letter-spacing: 0.5px;
+}
+
+.portfolio-nav a:hover {
+  background-color: var(--color-accent-primary);
+  color: var(--color-text);
+  /* Move o link 3 pixels para cima, criando um efeito de "elevação" */
+  transform: translateY(-3px);
+  box-shadow: 0 3px 8px var(--color-accent-primary);
+}
+
+
+/* Componentes
+    Detalhes do estilo de elementos internos (títulos e projetos) */
+
+/* Títulos principais das seções */
+.portfolio-panel h1,
+.portfolio-panel h2 {
+  /* Define um tamanho de fonte fluido: mínimo de 2.5rem, preferencial de 6vw, e máximo de 4.5rem */
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: var(--color-accent-primary);
+  margin-bottom: 20px;
+  /* Cria um contorno (stroke) no texto, para navegadores WebKit */
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+  text-shadow:
+    0 0 15px var(--color-accent-primary),
+    0 0 5px var(--color-accent-primary),
+    0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Parágrafos de texto */
+.portfolio-panel p {
+  font-size: 1.2rem;
+  /* Impede que as linhas de texto fiquem muito longas, melhorando a legibilidade */
+  max-width: 800px;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Contêiner da lista de projetos */
+#projetos .project-list-container {
+  display: flex;
+  /* Permite que os cards quebrem para a próxima linha em telas menores */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1400px;
+  width: 100%;
+}
+
+/* Card individual de projeto */
+.project-card {
+  /* Lógica do grid fluido:
+     - flex-basis: O card tenta ter um tamanho base de 350px.
+     - flex-grow: Se sobrar espaço na linha, o card pode crescer para ocupá-lo.
+     - min-width: O card nunca ficará menor que 300px, forçando a quebra de linha. */
+  flex-basis: 350px;
+  flex-grow: 1;
+  min-width: 300px;
+
+  background-color: rgba(48, 48, 48, 0.6);
+  border: 2px solid var(--color-accent-primary);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px var(--color-accent-primary), 0 0 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+
+  /* Organiza o conteúdo do card (título, parágrafo, link) em uma coluna */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+
+  /* Esconde qualquer conteúdo que possa vazar para fora do card, como em animações */
+  overflow: hidden;
+}
+
+.project-card h3 {
+  color: var(--color-accent-secondary);
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.3);
+  text-shadow: 0 0 10px var(--color-accent-secondary);
+}
+
+.project-card p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: var(--color-text);
+}
+
+.repo-link a {
+  /* Permite alinhar o ícone e o texto do link com flexbox */
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 15px;
+  background-color: var(--color-accent-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  font-weight: bold;
+}
+
+.repo-link a:hover {
+  background-color: var(--color-accent-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  color: black;
+}
+
+.repo-link a i {
+  margin-right: 8px;
+}
+
+.project-card:hover {
+  /* Efeito combinado de elevação (translateY) e crescimento (scale) */
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 20px var(--color-accent-secondary), 0 0 40px var(--color-accent-primary), 0 0 60px rgba(0, 0, 0, 0.8);
+  border-color: var(--color-accent-secondary);
+}
+
+/* Lista de links da seção de contato */
+.contact-links {
+  padding: 0;
+  /* Remove os marcadores (bolinhas) de uma lista */
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+/* Link individual de contato */
+.contact-links a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+
+  /* Organiza o ícone e o texto do link em uma coluna vertical */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  width: 120px;
+  padding: 15px;
+  border-radius: 10px;
+
+  transition: all 0.3s ease;
+}
+
+.contact-links a i {
+  font-size: 2.5rem;
+}
+
+.contact-links a:hover {
+  color: var(--color-accent-secondary);
+  background-color: rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Seletor de cores
+    Grid de cores disponíveis */
+
+/* Padrão */
+body.theme-default {
+  --color-accent-primary: #c800ff;
+  --color-accent-secondary: #00ff00;
+}
+
+/* Switch 1 */
+body.theme-blue-orange {
+  --color-accent-primary: #0120FB;
+  --color-accent-secondary: #FBAB01;
+}
+
+/* Switch 2 */
+body.theme-red-cyan {
+  --color-accent-primary: #E4080A;
+  --color-accent-secondary: #067F94;
+}
+
+/* Switch 3 */
+body.theme-yellow-green-indigo {
+  --color-accent-primary: #C9F607;
+  --color-accent-secondary: #7101CC;
+}
+
+/* Define quais elementos devem ter uma transição suave ao trocar de tema */
+.portfolio-nav a,
+.project-card,
+.repo-link a,
+.portfolio-panel h1,
+.portfolio-panel h2,
+.project-card h3,
+body::-webkit-scrollbar-thumb {
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Style do botão de temas */
+.theme-button {
+  background: none;
+  border: 2px solid var(--color-text);
+  color: var(--color-text);
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-left: 20px;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.theme-button:hover {
+  border-color: var(--color-accent-secondary);
+  color: var(--color-accent-secondary);
+  transform: translateY(-2px) scale(1.1);
+}
+
+/* Parágrafo de introdução da lista de habilidades */
+.skills-intro {
+  color: var(--color-accent-primary);
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Subtítulos dentro da lista de habilidades */
+#sobre ul strong,
+.theme-subtitle strong {
+  color: var(--color-accent-secondary);
+}
+
+/* Marcadores (bolinhas) da lista de habilidades */
+#sobre ul li::marker {
+  color: var(--color-accent-primary);
+  /* 'em' é uma unidade relativa ao tamanho da fonte do elemento pai (o <li>) */
+  font-size: 1.2em;
+}
+
+
+/* Responsividade 
+  Adaptação para telas menores (mobile) */
+
+@media (max-width: 600px) {
+  .portfolio-panel {
+    padding: 40px 20px;
+  }
+
+  .portfolio-panel h1,
+  .portfolio-panel h2 {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+
+  /* Em telas pequenas, força cada card de projeto a ocupar 100% da largura */
+  .project-card {
+    flex-basis: 100%;
+  }
+
+  .portfolio-nav {
+    gap: 5px;
+  }
+
+  .portfolio-nav a {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+}
