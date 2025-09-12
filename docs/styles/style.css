@@ -9,7 +9,7 @@
   box-sizing: border-box;
 }
 
-/* Variáveis CSS para centralizar cores e valores reutilizáveis */
+/* Variáveis CSS para cores */
 :root {
   --color-base: #303030;
   --color-accent-primary: #c800ff;
@@ -31,7 +31,6 @@ body {
   color: var(--color-text);
   /* Define o espaçamento entre linhas como 1.6x o tamanho da fonte, para melhor legibilidade */
   line-height: 1.6;
-
   background-color: var(--color-base);
   background-image: url('hexagon.svg');
   background-size: 20px 34.64px;
@@ -45,11 +44,9 @@ body {
 body::-webkit-scrollbar {
   width: 8px;
 }
-
 body::-webkit-scrollbar-track {
   background: var(--color-base);
 }
-
 body::-webkit-scrollbar-thumb {
   background-color: var(--color-accent-secondary);
   border-radius: 4px;
@@ -57,22 +54,16 @@ body::-webkit-scrollbar-thumb {
 
 /* Pseudo-elemento que cria uma sombra interna (efeito vinheta) sobre toda a página */
 body::after {
-  /* Pseudo-elementos precisam da propriedade 'content', mesmo que vazia */
   content: '';
-  /* Fixa o elemento na tela, para que ele não role com o conteúdo */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  /* A sombra 'inset' é projetada para dentro do elemento */
   box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.9);
-  /* Impede que este elemento bloqueie cliques nos elementos abaixo dele */
   pointer-events: none;
-  /* Coloca o pseudo-elemento atrás de todo o conteúdo da página */
   z-index: -1;
 }
-
 
 /* Layout e navegação
     Controle de estrutura de rolagem, posição da barra de navegação */
@@ -82,15 +73,11 @@ body::after {
   /* Cada seção ocupará no mínimo 100% da altura da tela (viewport height) */
   min-height: 100vh;
   width: 100%;
-
-  /* Centraliza todo o conteúdo da seção tanto na vertical quanto na horizontal */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-
-  /* Espaçamento interno para o conteúdo não colar nas bordas */
   padding: 60px 40px;
 }
 
@@ -104,19 +91,25 @@ body::after {
   transform: translateX(-50%);
   /* Garante que o menu fique acima de todos os outros elementos da página */
   z-index: 100;
-
   display: flex;
-  gap: 15px;
+  align-items: center;
+  gap: 20px;
 
   /* Efeito de "vidro fosco" para o fundo do menu */
   background-color: rgba(48, 48, 48, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  /* Prefixo para compatibilidade com Safari */
 
+  /* Prefixo para compatibilidade com Safari */
   padding: 10px 20px;
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Contêiner dos links da navegação para mantê-los agrupados */
+.nav-links {
+  display: flex;
+  gap: 15px;
 }
 
 /* Links da navegação */
@@ -128,8 +121,10 @@ body::after {
   border-radius: 8px;
   transition: background-color 0.3s ease, transform 0.2s ease;
   font-weight: bold;
+
   /* Transforma todo o texto em maiúsculas */
   text-transform: uppercase;
+
   /* Adiciona um pequeno espaçamento entre as letras */
   letter-spacing: 0.5px;
 }
@@ -137,6 +132,7 @@ body::after {
 .portfolio-nav a:hover {
   background-color: var(--color-accent-primary);
   color: var(--color-text);
+
   /* Move o link 3 pixels para cima, criando um efeito de "elevação" */
   transform: translateY(-3px);
   box-shadow: 0 3px 8px var(--color-accent-primary);
@@ -144,15 +140,16 @@ body::after {
 
 
 /* Componentes
-    Detalhes do estilo de elementos internos (títulos e projetos) */
+    Detalhes de estilo de elementos internos (títulos e projetos) */
 
 /* Títulos principais das seções */
 .portfolio-panel h1,
 .portfolio-panel h2 {
-  /* Define um tamanho de fonte fluido: mínimo de 2.5rem, preferencial de 6vw, e máximo de 4.5rem */
+  /* Define um tamanho de fonte fluído: mínimo de 2.5rem, preferencialmente de 6vw, e máximo de 4.5rem */
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   color: var(--color-accent-primary);
   margin-bottom: 20px;
+
   /* Cria um contorno (stroke) no texto, para navegadores WebKit */
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
   text-shadow:
@@ -161,17 +158,19 @@ body::after {
     0 0 20px rgba(255, 255, 255, 0.2);
 }
 
-/* Parágrafos de texto */
+/* Parágrafos de texto gerais */
 .portfolio-panel p {
   font-size: 1.2rem;
+
   /* Impede que as linhas de texto fiquem muito longas, melhorando a legibilidade */
   max-width: 800px;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
 }
 
-/* Contêiner da lista de projetos */
-#projetos .project-list-container {
+/* Contêiner da lista de projetos e certificados */
+.project-list-container {
   display: flex;
+
   /* Permite que os cards quebrem para a próxima linha em telas menores */
   flex-wrap: wrap;
   justify-content: center;
@@ -180,8 +179,9 @@ body::after {
   width: 100%;
 }
 
-/* Card individual de projeto */
+/* Card individual (usado para projetos, certificados e "Sobre Mim") */
 .project-card {
+
   /* Lógica do grid fluido:
      - flex-basis: O card tenta ter um tamanho base de 350px.
      - flex-grow: Se sobrar espaço na linha, o card pode crescer para ocupá-lo.
@@ -218,10 +218,24 @@ body::after {
   text-shadow: 0 0 10px var(--color-accent-secondary);
 }
 
+/* Parágrafos dentro de um card (adicionado margin-bottom para substituir os <br>) */
 .project-card p {
   font-size: 1.1rem;
-  margin-bottom: 20px;
   color: var(--color-text);
+  margin-bottom: 1em;
+}
+/* Remove a margem do último elemento dentro do card para um visual mais limpo */
+.project-card > *:last-child {
+  margin-bottom: 0;
+}
+.project-card p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Contêiner do botão de repositório/certificado */
+.repo-link {
+  margin-top: auto;
+  padding-top: 20px;
 }
 
 .repo-link a {
@@ -258,6 +272,7 @@ body::after {
 /* Lista de links da seção de contato */
 .contact-links {
   padding: 0;
+
   /* Remove os marcadores (bolinhas) de uma lista */
   list-style: none;
   display: flex;
@@ -285,11 +300,9 @@ body::after {
 
   transition: all 0.3s ease;
 }
-
 .contact-links a i {
   font-size: 2.5rem;
 }
-
 .contact-links a:hover {
   color: var(--color-accent-secondary);
   background-color: rgba(0, 0, 0, 0.2);
@@ -323,7 +336,9 @@ body.theme-yellow-green-indigo {
   --color-accent-secondary: #d069f0;
 }
 
-body.theme-yellow-green-indigo .portfolio-nav a:hover{
+/* Regra específica para melhorar o contraste de texto nos botões do tema Amarelo/Índigo */
+body.theme-yellow-green-indigo .repo-link a,
+body.theme-yellow-green-indigo .portfolio-nav a:hover {
   color: black;
 }
 
@@ -346,11 +361,10 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
   padding: 10px 12px;
   border-radius: 8px;
-  margin-left: 20px;
+  margin-left: 0;
   transition: all 0.3s ease;
   font-size: 1.1rem;
 }
-
 .theme-button:hover {
   border-color: var(--color-accent-secondary);
   color: var(--color-accent-secondary);
@@ -366,48 +380,91 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 1rem;
 }
 
-/* Subtítulos dentro da lista de habilidades */
+/* Subtítulos dentro das listas e cards */
 #sobre ul strong,
 .theme-subtitle strong {
   color: var(--color-accent-secondary);
 }
 
+/* Alinha o texto da lista de habilidades à esquerda dentro do card */
 #sobre ul li {
   text-align: left;
 }
-
 /* Marcadores (bolinhas) da lista de habilidades */
 #sobre ul li::marker {
   color: var(--color-accent-primary);
+
   /* 'em' é uma unidade relativa ao tamanho da fonte do elemento pai (o <li>) */
   font-size: 1.2em;
 }
 
+#sobre .project-card {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+/* Adiciona uma barra de rolagem customizada para o card "Sobre Mim" */
+#sobre .project-card::-webkit-scrollbar {
+  width: 6px;
+}
+#sobre .project-card::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+#sobre .project-card::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent-secondary);
+  border-radius: 3px;
+}
 
-/* Responsividade 
-  Adaptação para telas menores (mobile) */
+#certificados .project-card {
+  flex-grow: 0;
+}
+
+
+/* Responsividade
+    Adptação para telas (maiores e menores) */
+
+@media (max-width: 768px) {
+  /* Em telas de tablet e menores, a navbar se torna rolável */
+  .portfolio-nav {
+    width: 90vw; /* Usa 90% da largura da tela */
+    
+    /* Habilita a rolagem horizontal caso os itens não caibam */
+    overflow-x: auto;
+
+    /* Alinha os itens ao início para o scroll funcionar corretamente */
+    justify-content: flex-start;
+  }
+  
+  /* Esconde a barra de rolagem visualmente, mas mantém a funcionalidade de rolar */
+  .portfolio-nav::-webkit-scrollbar {
+    display: none;
+  }
+}
 
 @media (max-width: 600px) {
+  /* Ajustes gerais dos painéis para telas pequenas */
   .portfolio-panel {
-    padding: 40px 20px;
+    padding: 80px 20px;
   }
 
+  /* Ajuste do tamanho dos títulos */
   .portfolio-panel h1,
   .portfolio-panel h2 {
     font-size: clamp(2.2rem, 10vw, 3rem);
   }
 
-  /* Em telas pequenas, força cada card de projeto a ocupar 100% da largura */
+  /* Faz o card de projeto ocupar 100% da largura */
   .project-card {
     flex-basis: 100%;
   }
 
-  .portfolio-nav {
-    gap: 5px;
+  /* Links da navegação ficam um pouco mais compactos */
+  .portfolio-nav a {
+    padding: 10px 15px;
+    font-size: 0.8rem;
   }
 
-  .portfolio-nav a {
-    padding: 8px 12px;
-    font-size: 0.8rem;
+  .theme-button {
+    padding: 8px 10px;
   }
 }
