@@ -1,555 +1,530 @@
-  /* Style global, configuração
-      regras básicas para toda a página */
+/* Style global, configuração
+    regras básicas para toda a página */
 
-  /* Reset básico para garantir consistência entre navegadores */
-  * {
-    margin: 0;
-    padding: 0;
-    /* Garante que padding e bordas não aumentem o tamanho final do elemento */
-    box-sizing: border-box;
-  }
+/* Reset básico para garantir consistência entre navegadores */
+* {
+  margin: 0;
+  padding: 0;
+  /* Garante que padding e bordas não aumentem o tamanho final do elemento */
+  box-sizing: border-box;
+}
 
-  /* Variáveis CSS para cores */
-  :root {
-    --color-base: #303030;
-    --color-accent-primary: #c800ff;
-    --color-accent-secondary: #00ff00;
-    --color-text: #EDEDED;
-    --color-subtle-lines: #737373;
-    --nav-height: 80px;
-  }
+/* Variáveis CSS para cores */
+:root {
+  --color-base: #303030;
+  --color-accent-primary: #c800ff;
+  --color-accent-secondary: #00ff00;
+  --color-text: #EDEDED;
+  --color-subtle-lines: #737373;
+  --nav-height: 80px;
+}
 
-  html {
-    /* Anima a rolagem ao clicar em um link âncora (ex: <a href="#sobre">) */
-    scroll-behavior: smooth;
-    /* Cria um espaçamento no topo ao rolar para uma âncora, evitando que o menu fixo cubra o título */
-    scroll-padding-top: var(--nav-height);
-  }
+html {
+  /* Anima a rolagem ao clicar em um link âncora (ex: <a href="#sobre">) */
+  scroll-behavior: smooth;
+  /* Cria um espaçamento no topo ao rolar para uma âncora, evitando que o menu fixo cubra o título */
+  scroll-padding-top: var(--nav-height);
+}
 
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--color-text);
-    /* Define o espaçamento entre linhas como 1.6x o tamanho da fonte, para melhor legibilidade */
-    line-height: 1.6;
-    background-color: var(--color-base);
-    background-image: url('hexagon.svg');
-    background-size: 20px 34.64px;
-    /* Mantém a imagem de fundo fixa, criando um efeito de paralaxe ao rolar */
-    background-attachment: fixed;
-    /* Necessário para que o pseudo-elemento ::after se posicione corretamente em relação ao body */
-    position: relative;
-  }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--color-text);
+  /* Define o espaçamento entre linhas como 1.6x o tamanho da fonte, para melhor legibilidade */
+  line-height: 1.6;
+  background-color: var(--color-base);
+  background-image: url('hexagon.svg');
+  background-size: 20px 34.64px;
+  /* Mantém a imagem de fundo fixa, criando um efeito de paralaxe ao rolar */
+  background-attachment: fixed;
+  /* Necessário para que o pseudo-elemento ::after se posicione corretamente em relação ao body */
+  position: relative;
+}
 
-  /* Estilização da barra de rolagem (para navegadores baseados em WebKit) */
-  body::-webkit-scrollbar {
-    width: 8px;
-  }
+/* Estilização da barra de rolagem (para navegadores baseados em WebKit) */
+body::-webkit-scrollbar {
+  width: 8px;
+}
 
-  body::-webkit-scrollbar-track {
-    background: var(--color-base);
-  }
+body::-webkit-scrollbar-track {
+  background: var(--color-base);
+}
 
-  body::-webkit-scrollbar-thumb {
-    background-color: var(--color-accent-secondary);
-    border-radius: 4px;
-  }
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent-secondary);
+  border-radius: 4px;
+}
 
-  /* Pseudo-elemento que cria uma sombra interna (efeito vinheta) sobre toda a página */
-  body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.9);
-    pointer-events: none;
-    z-index: -1;
-  }
-
-
-  /* Style dos páineis (section) */
-  .portfolio-panel {
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 60px 40px;
-  }
-
-  /* Regra específica para a seção de início.
-   Mantemos a altura mínima de 100vh e removemos o espaçamento extra.
-   Isso garante que ela ocupe a tela inteira e centralize o conteúdo.
-  */
+/* Pseudo-elemento que cria uma sombra interna (efeito vinheta) sobre toda a página */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+  z-index: -1;
+}
 
 
-  /* Contêiner que agrupa a imagem e o texto */
-  .intro-container {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    max-width: 900px;
-    width: 100%;
-    text-align: left;
-    /*
-     * Adicionamos um espaçamento para o conteúdo não ficar colado
-     * na parte de cima da página, perto da navbar.
-     */
-    margin-top: 5rem;
-  }
+/* Style dos páineis (section) */
+.portfolio-panel {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 40px;
+}
 
-  /* Estilos para o texto ao lado da imagem */
-  .intro-text h1 {
-    margin-bottom: 0.5rem;
-  }
+/* Contêiner que agrupa a imagem e o texto */
+.intro-container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 900px;
+  width: 100%;
+  text-align: left;
+  margin-top: 5rem;
+}
 
-  .intro-text p {
-    font-size: 1.3rem;
-    max-width: none;
-  }
+/* Estilos para o texto ao lado da imagem */
+.intro-text h1 {
+  margin-bottom: 0.5rem;
+}
 
-  /* A foto de perfil */
-  .perfil-container img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    object-position: 50% 0;
-    border-radius: 30%;
-    border: 4px solid var(--color-accent-primary);
-    box-shadow: 0 0 15px var(--color-accent-primary), 0 0 20px rgba(0, 0, 0, 0.4);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-  }
+.intro-text p {
+  font-size: 1.3rem;
+  max-width: none;
+}
 
-  /* ... O resto do seu código permanece igual ... */
-  .perfil-container img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px var(--color-accent-secondary), 0 0 30px var(--color-accent-primary);
-    border-color: var(--color-accent-secondary);
-  }
+/* A foto de perfil */
+.perfil-container img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  object-position: 50% 0;
+  border-radius: 30%;
+  border: 4px solid var(--color-accent-primary);
+  box-shadow: 0 0 15px var(--color-accent-primary), 0 0 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
 
-  /* Layout e navegação
-      Controle de estrutura de rolagem, posição da barra de navegação */
+/* ... O resto do seu código permanece igual ... */
+.perfil-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--color-accent-secondary), 0 0 30px var(--color-accent-primary);
+  border-color: var(--color-accent-secondary);
+}
 
-  /* Style dos páineis (section) */
-  .portfolio-panel {
-    /* Cada seção ocupará no mínimo 100% da altura da tela (viewport height) */
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 60px 40px;
-  }
+/* Layout e navegação
+  Controle de estrutura de rolagem, posição da barra de navegação */
 
-  /* Barra de navegação fixa */
-  .portfolio-nav {
-    /* Fixa o menu no topo da tela, independente da rolagem */
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    /* Truque para centralizar horizontalmente um elemento de posição fixa/absoluta */
-    transform: translateX(-50%);
-    /* Garante que o menu fique acima de todos os outros elementos da página */
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+/* Barra de navegação fixa */
+.portfolio-nav {
+  /* Fixa o menu no topo da tela, independente da rolagem */
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  /* Truque para centralizar horizontalmente um elemento de posição fixa/absoluta */
+  transform: translateX(-50%);
+  /* Garante que o menu fique acima de todos os outros elementos da página */
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 
-    /* Efeito de "vidro fosco" para o fundo do menu */
-    background-color: rgba(48, 48, 48, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+  /* Efeito de "vidro fosco" para o fundo do menu */
+  background-color: rgba(48, 48, 48, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
-    /* Prefixo para compatibilidade com Safari */
-    padding: 10px 20px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-  }
+  /* Prefixo para compatibilidade com Safari */
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
 
-  /* Contêiner dos links da navegação para mantê-los agrupados */
-  .nav-links {
-    display: flex;
-    gap: 15px;
-  }
+/* Contêiner dos links da navegação para mantê-los agrupados */
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
 
-  /* Links da navegação */
-  .portfolio-nav a {
-    padding: 12px 25px;
-    background-color: var(--color-accent-secondary);
-    color: var(--color-base);
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    font-weight: bold;
+/* Links da navegação */
+.portfolio-nav a {
+  padding: 12px 25px;
+  background-color: var(--color-accent-secondary);
+  color: var(--color-base);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
 
-    /* Transforma todo o texto em maiúsculas */
-    text-transform: uppercase;
+  /* Transforma todo o texto em maiúsculas */
+  text-transform: uppercase;
 
-    /* Adiciona um pequeno espaçamento entre as letras */
-    letter-spacing: 0.5px;
-  }
+  /* Adiciona um pequeno espaçamento entre as letras */
+  letter-spacing: 0.5px;
+}
 
-  .portfolio-nav a:hover {
-    background-color: var(--color-accent-primary);
-    color: var(--color-text);
+.portfolio-nav a:hover {
+  background-color: var(--color-accent-primary);
+  color: var(--color-text);
 
-    /* Move o link 3 pixels para cima, criando um efeito de "elevação" */
-    transform: translateY(-3px);
-    box-shadow: 0 3px 8px var(--color-accent-primary);
-  }
+  /* Move o link 3 pixels para cima, criando um efeito de "elevação" */
+  transform: translateY(-3px);
+  box-shadow: 0 3px 8px var(--color-accent-primary);
+}
 
 
-  /* Componentes
-      Detalhes de estilo de elementos internos (títulos e projetos) */
+/* Componentes
+  Detalhes de estilo de elementos internos (títulos e projetos) */
 
-  /* Títulos principais das seções */
-  .portfolio-panel h1,
-  .portfolio-panel h2 {
-    /* Define um tamanho de fonte fluído: mínimo de 2.5rem, preferencialmente de 6vw, e máximo de 4.5rem */
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    color: var(--color-accent-primary);
-    margin-bottom: 20px;
+/* Títulos principais das seções */
+.portfolio-panel h1,
+.portfolio-panel h2 {
+  /* Define um tamanho de fonte fluído: mínimo de 2.5rem, preferencialmente de 6vw, e máximo de 4.5rem */
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  color: var(--color-accent-primary);
+  margin-bottom: 20px;
 
-    /* Cria um contorno (stroke) no texto, para navegadores WebKit */
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
-    text-shadow:
+  /* Cria um contorno (stroke) no texto, para navegadores WebKit */
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+  text-shadow:
       0 0 15px var(--color-accent-primary),
       0 0 5px var(--color-accent-primary),
       0 0 20px rgba(255, 255, 255, 0.2);
-  }
+}
 
-  /* Parágrafos de texto gerais */
-  .portfolio-panel p {
-    font-size: 1.2rem;
+/* Parágrafos de texto gerais */
+.portfolio-panel p {
+  font-size: 1.2rem;
 
-    /* Impede que as linhas de texto fiquem muito longas, melhorando a legibilidade */
-    max-width: 800px;
-    text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
-  }
+  /* Impede que as linhas de texto fiquem muito longas, melhorando a legibilidade */
+  max-width: 800px;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
 
-  /* Contêiner da lista de projetos e certificados */
-  .project-list-container {
-    display: flex;
+/* Contêiner da lista de "Projetos" e "Certificados" */
+.project-list-container {
+  display: flex;
 
-    /* Permite que os cards quebrem para a próxima linha em telas menores */
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    max-width: 1400px;
-    width: 100%;
-  }
+  /* Permite que os cards quebrem para a próxima linha em telas menores */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1400px;
+  width: 100%;
+}
 
-  /* Card individual (usado para projetos, certificados e "Sobre Mim") */
-  .project-card {
+/* Card individual ("Projetos", "Certificados" e "Sobre Mim") */
+.project-card {
 
-    /* Lógica do grid fluido:
-      - flex-basis: O card tenta ter um tamanho base de 350px.
-      - flex-grow: Se sobrar espaço na linha, o card pode crescer para ocupá-lo.
-      - min-width: O card nunca ficará menor que 300px, forçando a quebra de linha. */
-    flex-basis: 350px;
-    flex-grow: 1;
-    min-width: 300px;
+  /* Lógica do grid fluido:
+    - flex-basis: O card tenta tamanho base de 350px
+    - flex-grow: Caso sobrar espaço na linha, o card pode crescer para ocupá-lo
+    - min-width: O card nunca ficará menor que 300px, forçando a quebra de linha */
+  flex-basis: 350px;
+  flex-grow: 1;
+  min-width: 300px;
 
-    background-color: rgba(48, 48, 48, 0.6);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 2px solid var(--color-accent-primary);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px var(--color-accent-primary), 0 0 20px rgba(0, 0, 0, 0.4);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  background-color: rgba(48, 48, 48, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid var(--color-accent-primary);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px var(--color-accent-primary), 0 0 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, 
+              box-shadow 0.5s ease, 
+              border-color 0.5s ease, 
+              background-color 0.5s ease;
 
-    /* Organiza o conteúdo do card (título, parágrafo, link) em uma coluna */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
+  /* Organiza o conteúdo do card (título, parágrafo, link) em uma coluna */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
 
-    /* Esconde qualquer conteúdo que possa vazar para fora do card, como em animações */
-    overflow: hidden;
-  }
+  /* Esconde qualquer conteúdo que possa vazar para fora do card, como em animações */
+  overflow: hidden;
+}
 
-  .project-card h3 {
-    color: var(--color-accent-secondary);
-    margin-bottom: 10px;
-    font-size: 1.8rem;
-    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.3);
-    text-shadow: 0 0 10px var(--color-accent-secondary);
-  }
+.project-card h3 {
+  color: var(--color-accent-secondary);
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.3);
+  text-shadow: 0 0 10px var(--color-accent-secondary);
+}
 
-  /* Parágrafos dentro de um card (adicionado margin-bottom para substituir os <br>) */
-  .project-card p {
-    font-size: 1.1rem;
-    color: var(--color-text);
-    margin-bottom: 1em;
-  }
+/* Parágrafos dentro de um card (adicionado margin-bottom para substituir os <br>) */
+.project-card p {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  margin-bottom: 1em;
+}
 
-  /* Remove a margem do último elemento dentro do card para um visual mais limpo */
-  .project-card>*:last-child {
-    margin-bottom: 0;
-  }
+/* Remove a margem do último elemento dentro do card para um visual mais limpo */
+.project-card>*:last-child {
+  margin-bottom: 0;
+}
 
-  .project-card p:last-of-type {
-    margin-bottom: 0;
-  }
+.project-card p:last-of-type {
+  margin-bottom: 0;
+}
 
-  /* Contêiner do botão de repositório/certificado */
-  .repo-link {
-    margin-top: auto;
-    padding-top: 20px;
-  }
+/* Contêiner do botão de repositório/certificado */
+.repo-link {
+  margin-top: auto;
+  padding-top: 20px;
+}
 
-  .repo-link a {
-    /* Permite alinhar o ícone e o texto do link com flexbox */
-    display: inline-flex;
-    align-items: center;
-    padding: 8px 15px;
-    background-color: var(--color-accent-primary);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    font-weight: bold;
-  }
+.repo-link a {
+  /* Permite alinhar o ícone e o texto do link com flexbox */
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 15px;
+  background-color: var(--color-accent-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  font-weight: bold;
+}
 
-  .repo-link a:hover {
-    background-color: var(--color-accent-secondary);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    color: black;
-  }
+.repo-link a:hover {
+  background-color: var(--color-accent-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  color: black;
+}
 
-  .repo-link a i {
-    margin-right: 8px;
-  }
+.repo-link a i {
+  margin-right: 8px;
+}
 
-  .project-card:hover {
-    /* Efeito combinado de elevação (translateY) e crescimento (scale) */
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 0 20px var(--color-accent-secondary), 0 0 40px var(--color-accent-primary), 0 0 60px rgba(0, 0, 0, 0.8);
-    border-color: var(--color-accent-secondary);
-  }
+.project-card:hover {
+  /* Efeito combinado de elevação (translateY) e crescimento (scale) */
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 20px var(--color-accent-secondary), 0 0 40px var(--color-accent-primary), 0 0 60px rgba(0, 0, 0, 0.8);
+  border-color: var(--color-accent-secondary);
+}
 
-  /* Lista de links da seção de contato */
-  .contact-links {
-    padding: 0;
+/* Lista de links da seção de contato */
+.contact-links {
+  padding: 0;
 
-    /* Remove os marcadores (bolinhas) de uma lista */
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 30px;
-  }
+  /* Remove os marcadores (bolinhas) de uma lista */
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+}
 
-  /* Link individual de contato */
-  .contact-links a {
-    color: var(--color-text);
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: bold;
+/* Link individual de contato */
+.contact-links a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
 
-    /* Organiza o ícone e o texto do link em uma coluna vertical */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+  /* Organiza o ícone e o texto do link em uma coluna vertical */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 
-    width: 120px;
-    padding: 15px;
-    border-radius: 10px;
+  width: 120px;
+  padding: 15px;
+  border-radius: 10px;
 
-    transition: all 0.3s ease;
-  }
+  transition: all 0.3s ease;
+}
 
-  .contact-links a i {
-    font-size: 2.5rem;
-  }
+.contact-links a i {
+  font-size: 2.5rem;
+}
 
-  .contact-links a:hover {
-    color: var(--color-accent-secondary);
-    background-color: rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
-  }
+.contact-links a:hover {
+  color: var(--color-accent-secondary);
+  background-color: rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
 
-  /* Seletor de cores
-      Grid de cores disponíveis */
+/* Seletor de cores
+  Grid de cores disponíveis */
 
-  /* Padrão */
-  body.theme-default {
-    --color-accent-primary: #c800ff;
-    --color-accent-secondary: #00ff00;
-  }
+/* Padrão */
+body.theme-default {
+  --color-accent-primary: #c800ff;
+  --color-accent-secondary: #00ff00;
+}
 
-  /* Switch 1 */
-  body.theme-blue-orange {
-    --color-accent-primary: #0120FB;
-    --color-accent-secondary: #FBAB01;
-  }
+/* Switch 1 */
+body.theme-blue-orange {
+  --color-accent-primary: #0120FB;
+  --color-accent-secondary: #FBAB01;
+}
 
-  /* Switch 2 */
-  body.theme-red-cyan {
-    --color-accent-primary: #E4080A;
-    --color-accent-secondary: #067F94;
-  }
+/* Switch 2 */
+body.theme-red-cyan {
+  --color-accent-primary: #E4080A;
+  --color-accent-secondary: #067F94;
+}
 
-  /* Switch 3 */
-  body.theme-yellow-green-indigo {
-    --color-accent-primary: #C9F607;
-    --color-accent-secondary: #d069f0;
-  }
+/* Switch 3 */
+body.theme-yellow-green-indigo {
+  --color-accent-primary: #C9F607;
+  --color-accent-secondary: #d069f0;
+}
 
-  /* Regra específica para melhorar o contraste de texto nos botões do tema Amarelo/Índigo */
-  body.theme-yellow-green-indigo .repo-link a,
-  body.theme-yellow-green-indigo .portfolio-nav a:hover {
-    color: black;
-  }
+/* Regra específica para melhorar o contraste de texto nos botões do tema Amarelo/Índigo */
+body.theme-yellow-green-indigo .repo-link a,
+body.theme-yellow-green-indigo .portfolio-nav a:hover {
+  color: black;
+}
 
-  /* Define quais elementos devem ter uma transição suave ao trocar de tema */
-  .portfolio-nav a,
-  .project-card,
-  .repo-link a,
-  .portfolio-panel h1,
-  .portfolio-panel h2,
-  .project-card h3,
-  body::-webkit-scrollbar-thumb {
-    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
-  }
+/* Define quais elementos devem ter uma transição suave ao trocar de tema */
+.portfolio-nav a,
+.repo-link a,
+.portfolio-panel h1,
+.portfolio-panel h2,
+.project-card h3,
+body::-webkit-scrollbar-thumb {
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
 
-  /* Style do botão de temas */
-  .theme-button {
-    background: none;
-    border: 2px solid var(--color-text);
-    color: var(--color-text);
-    cursor: pointer;
-    padding: 10px 12px;
-    border-radius: 8px;
-    margin-left: 0;
-    transition: all 0.3s ease;
-    font-size: 1.1rem;
-  }
+/* Style do botão de temas */
+.theme-button {
+  background: none;
+  border: 2px solid var(--color-text);
+  color: var(--color-text);
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-left: 0;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
 
-  .theme-button:hover {
-    border-color: var(--color-accent-secondary);
-    color: var(--color-accent-secondary);
-    transform: translateY(-2px) scale(1.1);
-  }
+.theme-button:hover {
+  border-color: var(--color-accent-secondary);
+  color: var(--color-accent-secondary);
+  transform: translateY(-2px) scale(1.1);
+}
 
-  /* Parágrafo de introdução da lista de habilidades */
-  .skills-intro {
-    color: var(--color-accent-primary);
-    font-weight: bold;
-    font-size: 1.3rem;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
+/* Parágrafo de introdução da lista de habilidades */
+.skills-intro {
+  color: var(--color-accent-primary);
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
 
-  /* Subtítulos dentro das listas e cards */
-  #sobre ul strong,
-  .theme-subtitle strong {
-    color: var(--color-accent-secondary);
-  }
+/* Subtítulos dentro das listas e cards */
+#sobre ul strong,
+.theme-subtitle strong {
+  color: var(--color-accent-secondary);
+}
 
-  /* Alinha o texto da lista de habilidades à esquerda dentro do card */
-  #sobre ul li {
-    text-align: left;
-  }
+/* Alinha o texto da lista de habilidades à esquerda dentro do card */
+#sobre ul li {
+  text-align: left;
+}
 
-  /* Marcadores (bolinhas) da lista de habilidades */
-  #sobre ul li::marker {
-    color: var(--color-accent-primary);
+/* Marcadores (bolinhas) da lista de habilidades */
+#sobre ul li::marker {
+  color: var(--color-accent-primary);
 
-    /* 'em' é uma unidade relativa ao tamanho da fonte do elemento pai (o <li>) */
-    font-size: 1.2em;
-  }
+  /* 'em' é uma unidade relativa ao tamanho da fonte do elemento pai (o <li>) */
+  font-size: 1.2em;
+}
 
-  #sobre .project-card {
-    max-height: calc(100vh - 200px);
-    overflow-y: auto;
-  }
+#sobre .project-card {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
 
-  /* Adiciona uma barra de rolagem customizada para o card "Sobre Mim" */
-  #sobre .project-card::-webkit-scrollbar {
-    width: 6px;
-  }
+/* Adiciona uma barra de rolagem customizada para o card "Sobre Mim" */
+#sobre .project-card::-webkit-scrollbar {
+  width: 6px;
+}
 
-  #sobre .project-card::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
-  }
+#sobre .project-card::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
 
-  #sobre .project-card::-webkit-scrollbar-thumb {
-    background-color: var(--color-accent-secondary);
-    border-radius: 3px;
-  }
+#sobre .project-card::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent-secondary);
+  border-radius: 3px;
+}
 
-  #certificados .project-card {
-    flex-grow: 0;
-  }
+#certificados .project-card {
+  flex-grow: 0;
+}
 
 
-  /* Responsividade
-      Adptação para telas (maiores e menores) */
+/* Responsividade
+  Adptação para telas (maiores e menores) */
 
-  /* Em telas menores, a imagem e o texto voltam a se empilhar */
-  @media (max-width: 992px) {
-    .intro-container {
+/* Em telas menores, a imagem e o texto voltam a se empilhar */
+@media (max-width: 992px) {
+  .intro-container {
       flex-direction: column;
       text-align: center;
-    }
-
-    .perfil-container {
-      margin-bottom: 2rem;
-    }
-
-    .intro-text h1,
-    .intro-text p {
-      text-align: center;
-    }
   }
 
-  @media (max-width: 600px) {
-    .perfil-container img {
+  .perfil-container {
+      margin-bottom: 2rem;
+  }
+
+  .intro-text h1,
+  .intro-text p {
+      text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+
+  /* Regras do primeiro bloco */
+  .perfil-container img {
       width: 180px;
       height: 180px;
-    }
-
-    .intro-text h1 {
-      font-size: clamp(2rem, 8vw, 2.5rem);
-    }
   }
 
-  @media (max-width: 600px) {
+  .intro-text h1 {
+      font-size: clamp(2rem, 8vw, 2.5rem);
+  }
 
-    /* Ajustes gerais dos painéis para telas pequenas */
-    .portfolio-panel {
+  /* Regras do segundo bloco */
+  .portfolio-panel {
       padding: 80px 20px;
-    }
+  }
 
-    /* Ajuste do tamanho dos títulos */
-    .portfolio-panel h1,
-    .portfolio-panel h2 {
+  .portfolio-panel h1,
+  .portfolio-panel h2 {
       font-size: clamp(2.2rem, 10vw, 3rem);
-    }
+  }
 
-    /* Faz o card de projeto ocupar 100% da largura */
-    .project-card {
+  .project-card {
       flex-basis: 100%;
-    }
+  }
 
-    /* Links da navegação ficam um pouco mais compactos */
-    .portfolio-nav a {
+  .portfolio-nav a {
       padding: 10px 15px;
       font-size: 0.8rem;
-    }
-
-    .theme-button {
-      padding: 8px 10px;
-    }
   }
+
+  .theme-button {
+      padding: 8px 10px;
+  }
+}
