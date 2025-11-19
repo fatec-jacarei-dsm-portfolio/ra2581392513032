@@ -1,5 +1,5 @@
 /* Style global, configuração
-    regras básicas para toda a página */
+   regras básicas para toda a página */
 
 /* Reset básico para garantir consistência entre navegadores */
 * {
@@ -31,13 +31,13 @@ body {
   color: var(--color-text);
   /* Define o espaçamento entre linhas como 1.6x o tamanho da fonte, para melhor legibilidade */
   line-height: 1.6;
+  
+  /* Fundo transparente para mostrar o elemento fixo atrás */
   background-color: var(--color-base);
-  background-image: url('hexagon.svg');
-  background-size: 20px 34.64px;
-  /* Mantém a imagem de fundo fixa, criando um efeito de paralaxe ao rolar */
-  background-attachment: fixed;
-  /* Necessário para que o pseudo-elemento ::after se posicione corretamente em relação ao body */
+  
   position: relative;
+  /* Garante que body cria um contexto de pilha */
+  z-index: 0;
 }
 
 /* Estilização da barra de rolagem (para navegadores baseados em WebKit) */
@@ -54,7 +54,26 @@ body::-webkit-scrollbar-thumb {
   border-radius: 4px;
 }
 
-/* Pseudo-elemento que cria uma sombra interna (efeito vinheta) sobre toda a página */
+/* Camada 1: Fundo Sólido + Estampa de Hexágonos */
+body::before {
+  content:'';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  
+  background-image: url('./hexagon.svg'); 
+  background-size: 20px 34.64px;
+
+  /* Fica atrás de tudo (-2) */
+  z-index: -2;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Camada 2: Película escura (Vinheta) */
 body::after {
   content: '';
   position: fixed;
@@ -62,8 +81,14 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
+
+  /* Preto, com 50% de opacidade para escurecer o hexágono */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Sombra nas bordas */
   box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.9);
+  
   pointer-events: none;
+  /* Fica na frente do hexágono (-3), mas atrás do texto */
   z-index: -1;
 }
 
@@ -80,7 +105,7 @@ body::after {
   padding: 60px 40px;
 }
 
-/* Contêiner que agrupa a imagem e o texto */
+/* Contêiner que agrupa a imagem e o texto ('Início') */
 .intro-container {
   display: flex;
   align-items: center;
@@ -113,42 +138,35 @@ body::after {
   transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
-/* ... O resto do seu código permanece igual ... */
 .perfil-container img:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px var(--color-accent-secondary), 0 0 30px var(--color-accent-primary);
   border-color: var(--color-accent-secondary);
 }
 
-/* Layout e navegação
-  Controle de estrutura de rolagem, posição da barra de navegação */
+/* Layout e navegação */
 
 /* Barra de navegação fixa */
 .portfolio-nav {
-  /* Fixa o menu no topo da tela, independente da rolagem */
   position: fixed;
   top: 20px;
   left: 50%;
-  /* Truque para centralizar horizontalmente um elemento de posição fixa/absoluta */
   transform: translateX(-50%);
-  /* Garante que o menu fique acima de todos os outros elementos da página */
   z-index: 100;
   display: flex;
   align-items: center;
   gap: 20px;
 
-  /* Efeito de "vidro fosco" para o fundo do menu */
   background-color: rgba(48, 48, 48, 0.7);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 
-  /* Prefixo para compatibilidade com Safari */
   padding: 10px 20px;
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Contêiner dos links da navegação para mantê-los agrupados */
+/* Contêiner dos links da navegação */
 .nav-links {
   display: flex;
   gap: 15px;
@@ -163,36 +181,26 @@ body::after {
   border-radius: 8px;
   transition: background-color 0.3s ease, transform 0.2s ease;
   font-weight: bold;
-
-  /* Transforma todo o texto em maiúsculas */
   text-transform: uppercase;
-
-  /* Adiciona um pequeno espaçamento entre as letras */
   letter-spacing: 0.5px;
 }
 
 .portfolio-nav a:hover {
   background-color: var(--color-accent-primary);
   color: var(--color-text);
-
-  /* Move o link 3 pixels para cima, criando um efeito de "elevação" */
   transform: translateY(-3px);
   box-shadow: 0 3px 8px var(--color-accent-primary);
 }
 
 
-/* Componentes
-  Detalhes de estilo de elementos internos (títulos e projetos) */
+/* Componentes */
 
 /* Títulos principais das seções */
 .portfolio-panel h1,
 .portfolio-panel h2 {
-  /* Define um tamanho de fonte fluído: mínimo de 2.5rem, preferencialmente de 6vw, e máximo de 4.5rem */
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   color: var(--color-accent-primary);
   margin-bottom: 20px;
-
-  /* Cria um contorno (stroke) no texto, para navegadores WebKit */
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
   text-shadow:
       0 0 15px var(--color-accent-primary),
@@ -203,34 +211,23 @@ body::after {
 /* Parágrafos de texto gerais */
 .portfolio-panel p {
   font-size: 1.2rem;
-
-  /* Impede que as linhas de texto fiquem muito longas, melhorando a legibilidade */
   max-width: 800px;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
 }
 
 /* Contêiner da lista de "Projetos" e "Certificados" */
 .project-list-container {
-  display: flex;
-
-  /* Permite que os cards quebrem para a próxima linha em telas menores */
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 40px;
-  max-width: 1400px;
+  max-width: 1200px;
   width: 100%;
 }
 
 /* Card individual ("Projetos", "Certificados" e "Sobre Mim") */
 .project-card {
-
-  /* Lógica do grid fluido:
-    - flex-basis: O card tenta tamanho base de 350px
-    - flex-grow: Caso sobrar espaço na linha, o card pode crescer para ocupá-lo
-    - min-width: O card nunca ficará menor que 300px, forçando a quebra de linha */
-  flex-basis: 350px;
-  flex-grow: 1;
-  min-width: 300px;
+  width: 100%;
+  height: 100%;
 
   background-color: rgba(48, 48, 48, 0.6);
   backdrop-filter: blur(20px);
@@ -239,19 +236,17 @@ body::after {
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 0 10px var(--color-accent-primary), 0 0 20px rgba(0, 0, 0, 0.4);
+  
   transition: transform 0.4s ease, 
               box-shadow 0.5s ease, 
               border-color 0.5s ease, 
               background-color 0.5s ease;
 
-  /* Organiza o conteúdo do card (título, parágrafo, link) em uma coluna */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   text-align: center;
-
-  /* Esconde qualquer conteúdo que possa vazar para fora do card, como em animações */
   overflow: hidden;
 }
 
@@ -263,20 +258,40 @@ body::after {
   text-shadow: 0 0 10px var(--color-accent-secondary);
 }
 
-/* Parágrafos dentro de um card (adicionado margin-bottom para substituir os <br>) */
+/* Parágrafos dentro de um card */
 .project-card p {
   font-size: 1.1rem;
   color: var(--color-text);
-  margin-bottom: 1em;
+  margin-bottom: 1em; /* Padrão de espaçamento */
+
+  text-align: justify;
+  hyphens: auto;
 }
 
-/* Remove a margem do último elemento dentro do card para um visual mais limpo */
-.project-card>*:last-child {
+/* Garante que o último parágrafo de conteúdo antes do rodapé NÃO tenha margin-bottom */
+.project-card > p:last-of-type:not(.theme-subtitle) {
   margin-bottom: 0;
 }
 
-.project-card p:last-of-type {
+.project-card >*:last-child {
   margin-bottom: 0;
+}
+
+
+/* Subtítulo das Skills */
+.project-card p.skills-intro {
+    /* O !important garante que essa cor ganhe da cor branca padrão */
+    color: var(--color-accent-primary) !important;
+    
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+
+    text-shadow: 
+        0 0 10px var(--color-accent-primary),
+        0 0 0.1px var(--color-accent-primary);
 }
 
 /* Contêiner do botão de repositório/certificado */
@@ -286,7 +301,6 @@ body::after {
 }
 
 .repo-link a {
-  /* Permite alinhar o ícone e o texto do link com flexbox */
   display: inline-flex;
   align-items: center;
   padding: 8px 15px;
@@ -310,7 +324,6 @@ body::after {
 }
 
 .project-card:hover {
-  /* Efeito combinado de elevação (translateY) e crescimento (scale) */
   transform: translateY(-10px) scale(1.03);
   box-shadow: 0 0 20px var(--color-accent-secondary), 0 0 40px var(--color-accent-primary), 0 0 60px rgba(0, 0, 0, 0.8);
   border-color: var(--color-accent-secondary);
@@ -319,8 +332,6 @@ body::after {
 /* Lista de links da seção de contato */
 .contact-links {
   padding: 0;
-
-  /* Remove os marcadores (bolinhas) de uma lista */
   list-style: none;
   display: flex;
   justify-content: center;
@@ -328,23 +339,18 @@ body::after {
   margin-top: 30px;
 }
 
-/* Link individual de contato */
 .contact-links a {
   color: var(--color-text);
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: bold;
-
-  /* Organiza o ícone e o texto do link em uma coluna vertical */
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-
   width: 120px;
   padding: 15px;
   border-radius: 10px;
-
   transition: all 0.3s ease;
 }
 
@@ -358,8 +364,87 @@ body::after {
   transform: translateY(-5px);
 }
 
-/* Seletor de cores
-  Grid de cores disponíveis */
+
+/* Style do layout dos mini-cards ('Sobre Mim') */
+
+.about-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.about-card {
+  flex: 1;
+  max-width: 800px;
+  z-index: 2;
+}
+
+.tech-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 1;
+}
+
+/* Deslocamento visual */
+.left-col { margin-top: 40px; }
+.right-col { margin-bottom: 40px; }
+
+
+/* Estilo dos Badges (Bolinhas/Cards pequenos) */
+.tech-badge {
+  width: 80px; 
+  height: 80px;
+  background-color: rgba(48, 48, 48, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-accent-primary);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; 
+  color: var(--color-accent-secondary);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.tech-badge i, 
+.tech-badge svg {
+  font-size: 2rem;
+  width: 32px;
+  height: 32px;
+  fill: currentColor;
+  margin-bottom: 0;
+}
+
+.tech-badge p {
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin: 0;
+  color: var(--color-text);
+  text-transform: uppercase;
+}
+
+/* Efeito Hover nos badges */
+.tech-badge:hover {
+  transform: translateY(-5px) scale(1.1);
+  border-color: var(--color-accent-secondary);
+  box-shadow: 0 0 15px var(--color-accent-secondary);
+}
+
+.tech-badge:hover i,
+.tech-badge:hover p,
+.tech-badge:hover svg {
+  color: var(--color-accent-primary);
+}
+
+
+/* Seletor de cores */
 
 /* Padrão */
 body.theme-default {
@@ -385,13 +470,12 @@ body.theme-yellow-green-indigo {
   --color-accent-secondary: #d069f0;
 }
 
-/* Regra específica para melhorar o contraste de texto nos botões do tema Amarelo/Índigo */
 body.theme-yellow-green-indigo .repo-link a,
 body.theme-yellow-green-indigo .portfolio-nav a:hover {
   color: black;
 }
 
-/* Define quais elementos devem ter uma transição suave ao trocar de tema */
+/* Transições de tema */
 .portfolio-nav a,
 .repo-link a,
 .portfolio-panel h1,
@@ -401,7 +485,7 @@ body::-webkit-scrollbar-thumb {
   transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
 }
 
-/* Style do botão de temas */
+/* Botão de temas */
 .theme-button {
   background: none;
   border: 2px solid var(--color-text);
@@ -420,13 +504,19 @@ body::-webkit-scrollbar-thumb {
   transform: translateY(-2px) scale(1.1);
 }
 
-/* Parágrafo de introdução da lista de habilidades */
-.skills-intro {
-  color: var(--color-accent-primary);
+/* Rodapé do card (tecnologias e btn) */
+.card-bottom-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: auto;
+}
+
+/* Regra de texto da 'tecnologia' */
+.theme-subtitle {
+  color: var(--color-accent-secondary);
+  padding-top: 15px;
   font-weight: bold;
-  font-size: 1.3rem;
-  text-align: center;
-  margin-bottom: 1rem;
 }
 
 /* Subtítulos dentro das listas e cards */
@@ -435,16 +525,12 @@ body::-webkit-scrollbar-thumb {
   color: var(--color-accent-secondary);
 }
 
-/* Alinha o texto da lista de habilidades à esquerda dentro do card */
 #sobre ul li {
   text-align: left;
 }
 
-/* Marcadores (bolinhas) da lista de habilidades */
 #sobre ul li::marker {
   color: var(--color-accent-primary);
-
-  /* 'em' é uma unidade relativa ao tamanho da fonte do elemento pai (o <li>) */
   font-size: 1.2em;
 }
 
@@ -453,7 +539,6 @@ body::-webkit-scrollbar-thumb {
   overflow-y: auto;
 }
 
-/* Adiciona uma barra de rolagem customizada para o card "Sobre Mim" */
 #sobre .project-card::-webkit-scrollbar {
   width: 6px;
 }
@@ -473,14 +558,17 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-/* Responsividade
-  Adptação para telas (maiores e menores) */
+/* Responsividade */
 
-/* Em telas menores, a imagem e o texto voltam a se empilhar */
 @media (max-width: 992px) {
   .intro-container {
       flex-direction: column;
       text-align: center;
+  }
+
+  /* Transforma 2 colunas em 1 */
+  .project-list-container{
+    grid-template-columns: 1fr;
   }
 
   .perfil-container {
@@ -491,11 +579,18 @@ body::-webkit-scrollbar-thumb {
   .intro-text p {
       text-align: center;
   }
+
+  /* Esconde colunas laterais no tablet/mobile */
+  .tech-column {
+      display: none; 
+  }
+  
+  .about-wrapper {
+      flex-direction: column;
+  }
 }
 
 @media (max-width: 600px) {
-
-  /* Regras do primeiro bloco */
   .perfil-container img {
       width: 180px;
       height: 180px;
@@ -505,7 +600,6 @@ body::-webkit-scrollbar-thumb {
       font-size: clamp(2rem, 8vw, 2.5rem);
   }
 
-  /* Regras do segundo bloco */
   .portfolio-panel {
       padding: 80px 20px;
   }

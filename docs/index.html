@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio</title>
+    <title>Nicolas Kauê</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 </head>
 
 <body>
@@ -29,86 +30,135 @@
     <main>
 
         <section id="home" class="portfolio-panel">
-
             <div class="intro-container">
 
                 <div class="perfil-container">
                     <img src="assets/fotoPerfil.jpeg" alt="foto de perfil Nicolas Kauê">
                 </div>
-
                 <div class="intro-text">
                     <h1>Olá, eu sou o Nicolas</h1>
                     <p>Estudante de Desenvolvimento de Software, aspirante a profissional de Dados!</p>
                 </div>
 
             </div>
-
         </section>
 
-
         <section id="sobre" class="portfolio-panel">
-            <div class="project-card">
-                <h2>Sobre Mim</h2>
-                <p>No segundo semestre da minha jornada acadêmica, venho aprimorando minhas habilidades na criação de
-                    experiências digitais completas.
-                    Minha trajetória começou com o desenvolvimento frontend, onde aprendi a dar vida a layouts e a criar
-                    interfaces que fluem de forma intuitiva para o usuário.</p>
-                <p>Atualmente, meu foco se expandiu para o backend, onde a complexidade e a arquitetura de dados me
-                    atraem particularmente.
-                    Tenho um grande interesse em sistemas de gerenciamento e manipulação de informações, vendo a base de
-                    dados como a espinha dorsal de qualquer aplicação robusta e eficiente.</p>
-                <p>Além da minha formação, tive a oportunidade de vivenciar um ambiente corporativo utilizando o sistema
-                    SAP para realizar consultas, entradas e atualizações de dados.
-                    Essa experiência me proporcionou uma base sólida em atenção aos detalhes e na compreensão da
-                    dinâmica de sistemas empresariais complexos.</p>
-                <p class="skills-intro">Conhecimento em linguagens, frameworks e tecnologias:</p>
-                <ul>
-                    <li><strong>Linguagens:</strong> Base sólida em JavaScript e TypeScript, com compreensão dos
-                        conceitos de Programação Orientada a Objetos (POO)</li>
-                    <li><strong>Marcação:</strong> HTML e CSS, e atualmente em estudo de XML (com foco em JSX/TSX)</li>
-                    <li><strong>Banco de Dados:</strong> Conhecimento em modelagem e manipulação de dados com SQL, com
-                        experiência prática em PostgreSQL</li>
-                    <li><strong>Metodologias e Ferramentas:</strong> SCRUM, DBdesign4, Figma, UML, Git/GitHub, Node.js,
-                        Express</li>
-                    <li><strong>Idiomas:</strong> Inglês (Intermediário - com foco em leitura e escrita) | Autodidata
-                    </li>
-                </ul>
+            <div class="about-wrapper">
+
+                <div class="tech-column left-col">
+
+                    <div class="tech-badge" aria-label="JavaScript">
+                        <i class="devicon-javascript-plain"></i>
+                        <p>JS</p>
+                    </div>
+                    <div class="tech-badge" aria-label="TypeScript">
+                        <i class="devicon-typescript-plain"></i>
+                        <p>TS</p>
+                    </div>
+                    <div class="tech-badge" aria-label="Node.js">
+                        <i class="devicon-nodejs-plain"></i>
+                        <p>Node</p>
+                    </div>
+                    <div class="tech-badge" aria-label="PostgreSQL">
+                        <i class="devicon-postgresql-plain"></i>
+                        <p>Postgres</p>
+                    </div>
+
+                </div>
+
+                <div class="project-card about-card">
+                    <h2>Sobre Mim</h2>
+
+                    <p>
+                        Sou uma pessoa curiosa, daquelas que gostam de entender a lógica por trás de tudo.
+                        Comecei minha jornada encantado pela criação de interfaces, mas foi na complexidade do
+                        <strong>Back-end</strong>
+                        e na estrutura dos <strong>Dados</strong> que encontrei meu verdadeiro lugar.
+                    </p>
+                    <p>
+                        Minha vivência com <strong>SAP</strong> me ensinou o valor da precisão, mas acredito que o
+                        melhor código surge da clareza, não da pressa.
+                        Encaro a programação com leveza, preferindo construir soluções bem pensadas e robustas a apenas
+                        "entregar rápido".
+                    </p>
+                    <p>
+                        Sou autodidata e movido a desafios, conciliando novos aprendizados com hobbies pessoais.
+                    </p>
+                    <p class="skills-intro">Ferramentas e Conhecimentos:</p>
+                    <ul>
+                        <li><strong>Metodologias e Ferramentas:</strong> SCRUM, DBdesign4, Figma, UML, Git/GitHub,
+                            Node.js, Express</li>
+                        <li><strong>Idiomas:</strong> Inglês (Intermediário - com foco em leitura e escrita) |
+                            Autodidata</li>
+                    </ul>
+                </div>
+
+                <div class="tech-column right-col">
+
+                    <div class="tech-badge" aria-label="HTML5">
+                        <i class="devicon-html5-plain"></i>
+                        <p>HTML</p>
+                    </div>
+                    <div class="tech-badge" aria-label="CSS3">
+                        <i class="devicon-css3-plain"></i>
+                        <p>CSS</p>
+                    </div>
+                    <div class="tech-badge" aria-label="React">
+                        <i class="devicon-react-original"></i>
+                        <p>React</p>
+                    </div>
+
+                </div>
+
             </div>
         </section>
 
         <section id="projetos" class="portfolio-panel">
             <h2>Meus Projetos</h2>
+
             <div class="project-list-container">
                 <div class="project-card">
+
                     <h3>Horários Fatec</h3>
                     <p><strong>Em primeiro lugar da feira de Tecnologia 2025.1 | Fatec Jacareí</strong></p>
                     <p>Projeto full-stack desenvolvido no primeiro semestre, onde atuei em todas as fases do ciclo de
                         vida do software, desde a análise de requisitos até a implementação.
-                        Fui o principal responsável pela criação e modelagem do banco de dados em PostgreSQL.<br>Desenvolvi a API de comunicação com o backend utilizando Node.js e Express, implementando
+                        Fui o principal responsável pela criação e modelagem do banco de dados em
+                        PostgreSQL.<br>Desenvolvi a API de comunicação com o backend utilizando Node.js e Express,
+                        implementando
                         funções assíncronas (async/await) para o tratamento eficiente das informações.
                         Também participei do desenvolvimento da interface com HTML e CSS.</p>
-                    <p class="theme-subtitle"><strong>Tecnologias utilizadas:</strong> PostgreSQL, Node.js, Express,
-                        HTML, CSS, JavaScript</p>
-                    <div class="repo-link">
-                        <a href="https://github.com/techcastlefatec/horarios-fatec" target="_blank">
-                            <i class="fab fa-github"></i> Ver Repositório
-                        </a>
+                    <div class="card-bottom-content">
+                        <p class="theme-subtitle"><strong>Tecnologias utilizadas:</strong> PostgreSQL, Node.js, Express,
+                            HTML, CSS, JavaScript</p>
+                        <div class="repo-link">
+                            <a href="https://github.com/techcastlefatec/horarios-fatec" target="_blank">
+                                <i class="fab fa-github"></i> Ver Repositório
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
                     <h3>Disseminação de Dados Limnológicos</h3>
                     <p><strong>Projeto acadêmico em cooperação com INPE, UFRJ, UFJF e IIE</strong></p>
-                    <p>Projeto acadêmico com foco em disponibilizar e analisar dados limnológicos e meteorológicos de reservatórios da Furnas Centrais Elétricas S.A.
-                        O objetivo é subsidiar estudos sobre o Balanço de Carbono, disponibilizando os dados de forma organizada, 
+                    <p>Projeto acadêmico com foco em disponibilizar e analisar dados limnológicos e meteorológicos de
+                        reservatórios da Furnas Centrais Elétricas S.A.
+                        O objetivo é subsidiar estudos sobre o Balanço de Carbono, disponibilizando os dados de forma
+                        organizada,
                         integrando coletas manuais (campanhas) e dados automáticos em tempo real (SIMA).<br>
-                        Participei no desenvolvimento do back-end, construindo a API RESTful para consulta dos dados, e atuei no front-end na implementação de funcionalidades e estilização.
+                        Participei no desenvolvimento do back-end, construindo a API RESTful para consulta dos dados, e
+                        atuei no front-end na implementação de funcionalidades e estilização.
                         O sistema consome 3 bancos de dados (disponibilizados pelo INPE) containerizados com Docker,
                         traduzindo as informações armazenadas para mapas, gráficos e tabelas visuais.</p>
-                    <p class="theme-subtitle"><strong>Tecnologias utilizadas:</strong> React, TypeScript, Node.js, Express, PostgreSQL, Docker, Chart.js, Leaflet</p>
+                    <div class="card-bottom-content">
+                        <p class="theme-subtitle"><strong>Tecnologias utilizadas:</strong> React, TypeScript, Node.js,
+                        Express, PostgreSQL, Docker, Chart.js, Leaflet</p>
                     <div class="repo-link">
                         <a href="https://github.com/Helloworld-fatec/abp-dados-limnologicos" target="_blank">
                             <i class="fab fa-github"></i> Ver Repositório
                         </a>
+                    </div>
                     </div>
                 </div>
                 <div class="project-card">
@@ -119,26 +169,35 @@
                         de dados com PostgreSQL , e um sistema de permissões para múltiplos usuários.
                         Concebido como um modelo-base modular e reutilizável, com funcionalidades opcionais como
                         autenticação e exportação para PDF.</p>
-                    <p class="theme-subtitle"><strong>Tecnologias utilizadas:</strong> PostgreSQL, Node.js, Express,
+                    <div class="card-bottom-content">
+                        <p class="theme-subtitle"><strong>Tecnologias utilizadas:</strong> PostgreSQL, Node.js, Express,
                         HTML, CSS, JavaScript</p>
                     <div class="repo-link">
                         <a href="https://github.com/Nicolas-KS24/Duvy" target="_blank">
                             <i class="fab fa-github"></i> Ver Repositório
                         </a>
                     </div>
+                    </div>
                 </div>
                 <div class="project-card">
                     <h3>Detector de Plágio</h3>
                     <p> Uma aplicação web interativa que analisa a similaridade textual entre dois documentos usando o
-                        Índice de Jaccard. A ferramenta vai além da matemática básica, permitindo ao usuário aplicar técnicas de
-                        <strong>Processamento de Linguagem Natural (PLN)</strong> para refinar a análise. O usuário pode determinar a resposta
-                        através de filtros avançados como: <strong>Remover StopWords</strong>, <strong>Adicionar Stemming</strong> e <strong> Analisar por Bigrams</strong>.
-                        Ele processa textos (via input/upload de .txt) e realiza o cálculo da similaridade entre os conjuntos apresentados.</p>
+                        Índice de Jaccard. A ferramenta vai além da matemática básica, permitindo ao usuário aplicar
+                        técnicas de
+                        <strong>Processamento de Linguagem Natural (PLN)</strong> para refinar a análise. O usuário pode
+                        determinar a resposta
+                        através de filtros avançados como: <strong>Remover StopWords</strong>, <strong>Adicionar
+                            Stemming</strong> e <strong> Analisar por Bigrams</strong>.
+                        Ele processa textos (via input/upload de .txt) e realiza o cálculo da similaridade entre os
+                        conjuntos apresentados.
+                    </p>
+                    <div class="card-bottom-content">
                     <p class="theme-subtitle"><strong>Tecnologias utilizadas:</strong> HTML, CSS, JavaScript</p>
                     <div class="repo-link">
                         <a href="https://github.com/nickdsm24/Similaridade-de-Jaccard" target="_blank">
                             <i class="fab fa-github"></i> Ver Repositório
                         </a>
+                    </div>
                     </div>
                 </div>
             </div>
