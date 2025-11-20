@@ -591,6 +591,17 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media (max-width: 600px) {
+  /* Esconde btn (exceto de cores) */
+  .nav-links{
+    display: none;
+  }
+
+  /* navbar fica somente em volta do btn de cores */
+  .portfolio-nav{
+    padding: 8px;
+    gap: 0;
+  }
+
   .perfil-container img {
       width: 180px;
       height: 180px;
