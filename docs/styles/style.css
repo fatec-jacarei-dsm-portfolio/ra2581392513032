@@ -197,7 +197,8 @@ body::after {
 
 /* Títulos principais das seções */
 .portfolio-panel h1,
-.portfolio-panel h2 {
+.portfolio-panel h2,
+.project-category-title {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   color: var(--color-accent-primary);
   margin-bottom: 20px;
@@ -206,6 +207,24 @@ body::after {
       0 0 15px var(--color-accent-primary),
       0 0 5px var(--color-accent-primary),
       0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+h3.project-category-title{
+  font-size: 2rem;
+  text-align: left;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--color-accent-primary);
+  padding-bottom: 10px;
+}
+
+.project-category-title{
+  color: var(--color-accent-secondary);
+  text-shadow: 
+      0 0 15px var(--color-accent-secondary),
+      0 0 15px var(--color-accent-secondary);
 }
 
 /* Parágrafos de texto gerais */
@@ -245,7 +264,7 @@ body::after {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: center; 
   text-align: center;
   overflow: hidden;
 }
