@@ -317,6 +317,11 @@ h3.project-category-title{
 .repo-link {
   margin-top: auto;
   padding-top: 20px;
+
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .repo-link a {
