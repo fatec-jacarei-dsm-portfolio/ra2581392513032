@@ -707,3 +707,36 @@ body::-webkit-scrollbar-thumb {
   border: 1px solid var(--color-accent-primary);
   font-weight: 600;
 }
+
+.project-preview {
+  width: 100%;
+  margin: 10px 0 18px;
+  border-radius: 10px;
+  overflow: hidden;
+
+  border: 2px solid rgba(255, 255, 255, .08);
+  background: rgba(0, 0, 0, .25);
+
+  transition: all .35s ease;
+}
+
+.project-preview img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform .35s ease;
+}
+
+.project-card:hover .project-preview {
+  border-color: var(--color-accent-secondary);
+  box-shadow: 0 0 12px rgba(0, 255, 0, .3);
+}
+
+.project-card:hover .project-preview img {
+  transform: scale(1.03);
+}
