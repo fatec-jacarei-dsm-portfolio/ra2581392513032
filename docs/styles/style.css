@@ -218,6 +218,7 @@ h3.project-category-title {
   margin-bottom: 20px;
   border-bottom: 2px solid var(--color-accent-primary);
   padding-bottom: 10px;
+  transition: border-color 0.4s ease;
 }
 
 .project-category-title {
@@ -225,6 +226,48 @@ h3.project-category-title {
   text-shadow:
     0 0 15px var(--color-accent-secondary),
     0 0 15px var(--color-accent-secondary);
+}
+
+.category-toggle-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  text-shadow: inherit;
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.category-toggle-btn:hover {
+  color: var(--color-accent-primary);
+  text-shadow:
+    0 0 15px var(--color-accent-primary),
+    0 0 15px var(--color-accent-primary);
+}
+
+.category-toggle-btn .toggle-icon {
+  font-size: 1.4rem;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--color-accent-primary);
+}
+
+.category-toggle-btn[aria-expanded="false"] .toggle-icon {
+  transform: rotate(-90deg);
+}
+
+.project-list-container.collapsible-content {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-list-container.collapsible-content.collapsed {
+  display: none;
 }
 
 /* Parágrafos de texto gerais */

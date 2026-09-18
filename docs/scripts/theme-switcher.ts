@@ -125,3 +125,28 @@ document.addEventListener('keydown', (event: KeyboardEvent) => {
         closeCertModal();
     }
 });
+
+// ==========================================
+// Categorias de Projetos Recolhíveis (Accordion)
+// ==========================================
+const categoryToggleBtns = document.querySelectorAll<HTMLButtonElement>('.category-toggle-btn');
+
+categoryToggleBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        const controlsId = btn.getAttribute('aria-controls');
+        const targetContainer = controlsId
+            ? document.getElementById(controlsId)
+            : btn.closest('.project-category-title')?.nextElementSibling as HTMLElement | null;
+
+        if (targetContainer) {
+            if (isExpanded) {
+                btn.setAttribute('aria-expanded', 'false');
+                targetContainer.classList.add('collapsed');
+            } else {
+                btn.setAttribute('aria-expanded', 'true');
+                targetContainer.classList.remove('collapsed');
+            }
+        }
+    });
+});

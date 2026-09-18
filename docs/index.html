@@ -136,9 +136,14 @@
         <section id="projetos" class="portfolio-panel">
             <h2>Meus Projetos</h2>
 
-            <h3 class="project-category-title">Acadêmicos:</h3>
+            <h3 class="project-category-title">
+                <button type="button" class="category-toggle-btn" aria-expanded="true" aria-controls="academic-projects" aria-label="Minimizar ou expandir projetos acadêmicos">
+                    <span>Acadêmicos:</span>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </button>
+            </h3>
 
-            <div class="project-list-container">
+            <div id="academic-projects" class="project-list-container collapsible-content">
                 <div class="project-card">
                     <div class="project-preview">
                         <img src="assets/images/horarios_fatec.png" alt="horarios fatec">
@@ -306,9 +311,14 @@
 
             </div>
 
-            <h3 class="project-category-title">Pessoais:</h3>
+            <h3 class="project-category-title">
+                <button type="button" class="category-toggle-btn" aria-expanded="true" aria-controls="personal-projects" aria-label="Minimizar ou expandir projetos pessoais">
+                    <span>Pessoais:</span>
+                    <i class="fas fa-chevron-down toggle-icon"></i>
+                </button>
+            </h3>
 
-            <div class="project-list-container">
+            <div id="personal-projects" class="project-list-container collapsible-content">
                 <div class="project-card">
                     <!-- <div class="project-preview">
                         <img src="assets/images/ambra.png" alt="AMBRA">
