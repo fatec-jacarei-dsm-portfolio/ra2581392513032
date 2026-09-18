@@ -828,6 +828,15 @@ body::-webkit-scrollbar-thumb {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Badge de status/progresso em cor fixa (Laranja Âmbar) */
+.project-badge.badge-amber,
+.badge-amber {
+  color: #ffaa33 !important;
+  border-color: #ffaa33 !important;
+  background-color: rgba(255, 170, 51, 0.15) !important;
+  box-shadow: 0 0 8px rgba(255, 170, 51, 0.35) !important;
+}
+
 .project-preview {
   width: 100%;
   max-width: 480px;
