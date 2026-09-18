@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nicolas Kauê</title>
+    <title>Nicolas K. Silva </title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" type="image/svg+xml" href="styles/favicon.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,13 +16,16 @@
 <body>
 
     <header class="portfolio-nav">
-        <div class="nav-links">
+        <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav class="nav-links" id="nav-links">
             <a href="#home">Início</a>
             <a href="#sobre">Sobre</a>
             <a href="#projetos">Projetos</a>
             <a href="#certificados">Certificados</a>
             <a href="#contato">Contato</a>
-        </div>
+        </nav>
         <button id="theme-switcher" class="theme-button" aria-label="Mudar tema de cores">
             <i class="fas fa-palette"></i>
         </button>
@@ -33,11 +37,11 @@
             <div class="intro-container">
 
                 <div class="perfil-container">
-                    <img src="assets/foto-perfil.jpg" alt="foto de perfil Nicolas Kauê">
+                    <img src="assets/images/foto-perfil.jpg" alt="foto de perfil Nicolas Kauê">
                 </div>
                 <div class="intro-text">
                     <h1>Olá, eu sou o Nicolas</h1>
-                    <p>Estudante de Desenvolvimento de Software, aspirante a profissional de Dados!</p>
+                    <p>Estudante de Desenvolvimento de Software & Desenvolvedor Full-Stack</p>
                 </div>
 
             </div>
@@ -47,101 +51,83 @@
             <div class="about-wrapper">
 
                 <div class="tech-column left-col">
-
-                    <div class="tech-column left-col">
-
-                        <div class="tech-badge" aria-label="TypeScript">
-                            <i class="devicon-typescript-plain"></i>
-                            <p>TS</p>
-                        </div>
-
-                        <div class="tech-badge" aria-label="PostgreSQL">
-                            <i class="devicon-postgresql-plain"></i>
-                            <p>Postgres</p>
-                        </div>
-
-                        <div class="tech-badge" aria-label="MySQL">
-                            <i class="devicon-mysql-plain"></i>
-                            <p>MySQL</p>
-                        </div>
-
-                        <div class="tech-badge" aria-label="MongoDB">
-                            <i class="devicon-mongodb-plain"></i>
-                            <p>Mongo</p>
-                        </div>
-
-                        <div class="tech-badge" aria-label="Docker">
-                            <i class="devicon-docker-plain"></i>
-                            <p>Docker</p>
-                        </div>
-
-                        <div class="tech-badge" aria-label="Prisma ORM">
-                            <i class="devicon-prisma-original"></i>
-                            <p>Prisma</p>
-                        </div>
-
+                    <div class="tech-badge" aria-label="TypeScript">
+                        <i class="devicon-typescript-plain"></i>
+                        <p>TS</p>
                     </div>
 
+                    <div class="tech-badge" aria-label="PostgreSQL">
+                        <i class="devicon-postgresql-plain"></i>
+                        <p>Postgres</p>
+                    </div>
+
+                    <div class="tech-badge" aria-label="MySQL">
+                        <i class="devicon-mysql-plain"></i>
+                        <p>MySQL</p>
+                    </div>
+
+                    <div class="tech-badge" aria-label="MongoDB">
+                        <i class="devicon-mongodb-plain"></i>
+                        <p>Mongo</p>
+                    </div>
+
+                    <div class="tech-badge" aria-label="Docker">
+                        <i class="devicon-docker-plain"></i>
+                        <p>Docker</p>
+                    </div>
+
+                    <div class="tech-badge" aria-label="Prisma ORM">
+                        <i class="devicon-prisma-original"></i>
+                        <p>Prisma</p>
+                    </div>
                 </div>
 
                 <div class="project-card about-card">
                     <h2>Sobre Mim</h2>
 
                     <p>
-                        Sou uma pessoa curiosa, daquelas que gostam de entender a lógica por trás de tudo.
-                        Comecei minha jornada encantado pela criação de interfaces, mas foi na complexidade do
-                        <strong>Back-end</strong>
-                        e na estrutura dos <strong>Dados</strong> que encontrei meu verdadeiro lugar.
+                        Sou uma pessoa curiosa, movida pelo desafio de entender a lógica e a arquitetura por trás de cada solução.
+                        Atuo no desenvolvimento <strong>Full-Stack</strong>, integrando a criação de interfaces modernas, intuitivas e responsivas no <strong>Front-end</strong> com a robustez de APIs, regras de negócio e modelagem de bancos de dados no <strong>Back-end</strong>, além de um forte interesse na área de <strong>Dados</strong>.
                     </p>
                     <p>
-                        Minha vivência com <strong>SAP</strong> me ensinou o valor da precisão, mas acredito que o
-                        melhor código surge da clareza, não da pressa.
-                        Encaro a programação com leveza, preferindo construir soluções bem pensadas e robustas a apenas
-                        "entregar rápido".
+                        Minha vivência com <strong>SAP</strong> me ensinou o valor da precisão e consistência corporativa. Acredito que o melhor código nasce da clareza e do planejamento, preferindo construir soluções bem estruturadas, escaláveis e seguras a apenas "entregar rápido".
                     </p>
                     <p>
-                        Sou autodidata e movido a desafios, conciliando novos aprendizados com hobbies pessoais.
+                        Sou autodidata e proativo, sempre buscando aprofundar conhecimentos práticos e alinhar boas práticas de engenharia de software a resultados reais.
                     </p>
                     <p class="skills-intro">Ferramentas e Conhecimentos:</p>
                     <ul>
-                        <li><strong>Metodologias e Ferramentas:</strong> SCRUM, DBdesign4, Figma, UML, Git/GitHub,
-                            Node.js, Express</li>
-                        <li><strong>Idiomas:</strong> Inglês (Intermediário - com foco em leitura e escrita) |
-                            Autodidata</li>
+                        <li><strong>Full-Stack & Dados:</strong> Node.js, Express, TypeScript, JavaScript, React, PostgreSQL, MySQL, MongoDB, Prisma ORM, Docker, Python</li>
+                        <li><strong>Metodologias e Ferramentas:</strong> SCRUM, Modelagem de Dados, Figma, UML, Git/GitHub, APIs RESTful</li>
+                        <li><strong>Idiomas:</strong> Inglês (Intermediário — foco em leitura e documentação técnica) | Autodidata</li>
                     </ul>
                 </div>
 
                 <div class="tech-column right-col">
-
-                    <div class="tech-column right-col">
-
-                        <div class="tech-badge" aria-label="JavaScript">
-                            <i class="devicon-javascript-plain"></i>
-                            <p>JS</p>
-                        </div>
-
-                        <div class="tech-badge" aria-label="HTML5">
-                            <i class="devicon-html5-plain"></i>
-                            <p>HTML</p>
-                        </div>
-
-                        <div class="tech-badge" aria-label="CSS3">
-                            <i class="devicon-css3-plain"></i>
-                            <p>CSS</p>
-                        </div>
-
-                        <div class="tech-badge" aria-label="React">
-                            <i class="devicon-react-original"></i>
-                            <p>React</p>
-                        </div>
-
-                        <div class="tech-badge" aria-label="Python">
-                            <i class="devicon-python-plain"></i>
-                            <p>Python</p>
-                        </div>
-
+                    <div class="tech-badge" aria-label="JavaScript">
+                        <i class="devicon-javascript-plain"></i>
+                        <p>JS</p>
                     </div>
 
+                    <div class="tech-badge" aria-label="HTML5">
+                        <i class="devicon-html5-plain"></i>
+                        <p>HTML</p>
+                    </div>
+
+                    <div class="tech-badge" aria-label="CSS3">
+                        <i class="devicon-css3-plain"></i>
+                        <p>CSS</p>
+                    </div>
+
+                    <div class="tech-badge" aria-label="React">
+                        <i class="devicon-react-original"></i>
+                        <p>React</p>
+                    </div>
+
+                    <div class="tech-badge" aria-label="Python">
+                        <i class="devicon-python-plain"></i>
+                        <p>Python</p>
+                    </div>
                 </div>
 
             </div>
@@ -154,6 +140,10 @@
 
             <div class="project-list-container">
                 <div class="project-card">
+                    <div class="project-preview">
+                        <img src="assets/images/horarios_fatec.png" alt="horarios fatec">
+                    </div>
+
                     <h3>Gestão de Horários Acadêmicos</h3>
                     <p class="project-subtitle">
                         <strong>Projeto full-stack acadêmico</strong>
@@ -176,16 +166,18 @@
                         <p class="theme-subtitle"><strong>Tecnologias utilizadas:</strong> PostgreSQL, Node.js, Express,
                             HTML, CSS, JavaScript</p>
                         <div class="repo-link">
-
                             <a href="https://github.com/techcastlefatec/horarios-fatec" target="_blank">
                                 <i class="fab fa-github"></i> Ver Repositório
                             </a>
-
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
+                    <div class="project-preview">
+                        <img src="assets/images/dados_limnologicos.png" alt="dados INPE">
+                    </div>
+
                     <h3>Disseminação de Dados Limnológicos</h3>
                     <p class="project-subtitle">
                         <strong>Projeto acadêmico em cooperação com INPE, UFRJ, UFJF e IIE</strong>
@@ -209,52 +201,18 @@
                         <p class="theme-subtitle"><strong>Tecnologias utilizadas:</strong> React, TypeScript, Node.js,
                             Express, PostgreSQL, Docker, Chart.js, Leaflet</p>
                         <div class="repo-link">
-
                             <a href="https://github.com/Helloworld-fatec/abp-dados-limnologicos" target="_blank">
                                 <i class="fab fa-github"></i> Ver Repositório
                             </a>
-
                         </div>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <h3>Valle Leads System</h3>
-                    <p class="project-subtitle">
-                        <strong>Sistema de Gestão de Leads</strong>
-                    </p>
-
-                    <div class="project-meta">
-                        <span class="project-period">ABP 2026.1</span>
+                    <div class="project-preview">
+                        <img src="assets/images/similaridade_jaccard.png" alt="Detector plagio">
                     </div>
-                    <p>
-                        Sistema full-stack desenvolvido para a empresa 1000 Valle Multimarcas, com foco na centralização
-                        e gestão de leads e negociações.
-                        Atuei como Scrum Master, organizando o fluxo de trabalho, planejamento das sprints e
-                        acompanhamento das entregas.
-                        <br>
-                        O sistema implementa controle de acesso por perfil (RBAC), gestão do funil de vendas e
-                        dashboards operacionais e analíticos com filtros temporais.
-                        <br>
-                        Desenvolvido com arquitetura em camadas, utilizando API REST, PostgreSQL e containerização com
-                        Docker.
-                    </p>
-                    </p>
-                    <div class="card-bottom-content">
-                        <p class="theme-subtitle">
-                            <strong>Tecnologias utilizadas:</strong> React, TypeScript, Node.js, PostgreSQL, Prisma,
-                            Docker
-                        </p>
-                        <div class="repo-link">
-                            <a href="https://github.com/Helloworld-fatec/valle-leads-system" target="_blank">
-                                <i class="fab fa-github"></i> Ver Repositório
-                            </a>
-                        </div>
-                    </div>
-                </div>
 
-
-                <div class="project-card">
                     <h3>Detector de Plágio</h3>
                     <p class="project-subtitle">
                         <strong>Aplicação de análise de similaridade textual com PLN</strong>
@@ -277,11 +235,9 @@
                     <div class="card-bottom-content">
                         <p class="theme-subtitle"><strong>Tecnologias utilizadas:</strong> HTML, CSS, JavaScript</p>
                         <div class="repo-link">
-
                             <a href="https://github.com/nickdsm24/Similaridade-de-Jaccard" target="_blank">
                                 <i class="fab fa-github"></i> Ver Repositório
                             </a>
-
                             <a href="https://nicolas-ks24.github.io/Similaridade_de_Jaccard/" target="_blank"
                                 class="btn-live">
                                 <i class="fas fa-external-link-alt"></i> Ver Projeto
@@ -290,81 +246,184 @@
                     </div>
                 </div>
 
-            </div>
-
-            <!-- <h3 class="project-category-title">Pessoais:</h3>
-            
-            <div class="project-list-container">
-                
                 <div class="project-card">
+                    <div class="project-preview">
+                        <img src="assets/images/valle_leads_system.png" alt="valle leads">
+                    </div>
+
+                    <h3>Valle Leads System</h3>
+                    <p class="project-subtitle">
+                        <strong>Sistema de Gestão de Leads</strong>
+                    </p>
+
+                    <div class="project-meta">
+                        <span class="project-period">ABP 2026.1</span>
+                    </div>
+                    <p>
+                        Sistema full-stack desenvolvido para a empresa 1000 Valle Multimarcas, com foco na centralização
+                        e gestão de leads e negociações.
+                        Atuei como Scrum Master, organizando o fluxo de trabalho, planejamento das sprints e
+                        acompanhamento das entregas.
+                        <br>
+                        O sistema implementa controle de acesso por perfil (RBAC), gestão do funil de vendas e
+                        dashboards operacionais e analíticos com filtros temporais.
+                        <br>
+                        Desenvolvido com arquitetura em camadas, utilizando API REST, PostgreSQL e containerização com
+                        Docker.
+                    </p>
+                    <div class="card-bottom-content">
+                        <p class="theme-subtitle">
+                            <strong>Tecnologias utilizadas:</strong> React, TypeScript, Node.js, PostgreSQL, Prisma,
+                            Docker
+                        </p>
+                        <div class="repo-link">
+                            <a href="https://github.com/Helloworld-fatec/valle-leads-system" target="_blank">
+                                <i class="fab fa-github"></i> Ver Repositório
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-            </div> -->
+                <div class="project-card">
+                    <div class="project-preview">
+                        <img src="assets/images/neon_roots.png" alt="jogo">
+                    </div>
+
+                    <h3>Neon Roots</h3>
+                    <p class="project-subtitle">
+                        <strong>Jogo narrativo 2D desenvolvido para o Desafio Game ODS</strong>
+                    </p>
+
+                    <div class="project-meta">
+                        <span class="project-badge">🌱 Sustentabilidade • Game Development</span>
+                        <span class="project-period">2026.1</span>
+                    </div>
+
+                    <p>
+                        Neon Roots é um jogo narrativo em pixel art desenvolvido na Godot Engine,
+                        criado para conscientizar sobre sustentabilidade e desigualdade social
+                        por meio de uma experiência interativa inspirada nos Objetivos de
+                        Desenvolvimento Sustentável (ODS) da ONU.
+                        <br><br>
+                        Atuei principalmente como Systems Programmer,
+                        desenvolvendo sistemas centrais da gameplay, incluindo o sistema de
+                        interação contextual entre o jogador e objetos do cenário, além do
+                        primeiro puzzle reutilizável envolvendo portas, terminais e fusíveis.
+                        Também participei da roteirização da história e fluxo de gameplay, definição da arquitetura do
+                        projeto, organização das sprints e integração das mecânicas principais da demo.
+                    </p>
+
+                    <div class="card-bottom-content">
+                        <p class="theme-subtitle">
+                            <strong>Tecnologias utilizadas:</strong> Godot 4.x, GDScript, Git, GitHub
+                        </p>
+                        <div class="repo-link">
+                            <a href="https://github.com/zetastudioteam/neon-roots" target="_blank">
+                                <i class="fab fa-github"></i> Ver Repositório
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </section>
 
         <section id="certificados" class="portfolio-panel">
             <h2>Certificados</h2>
             <div class="project-list-container">
+
                 <div class="project-card">
-                    <h3>Introdução a Orientação a Objetos</h3>
-                    <p>Neste curso, aprofundei meus conhecimentos em Programação Orientada a Objetos, compreendendo seus
-                        conceitos-chave e aplicando os quatro pilares fundamentais.
-                        Essa formação me forneceu uma base sólida para avançar no desenvolvimento de software com foco
-                        no gerenciamento eficiente de dados.</p>
-                    <p class="theme-subtitle"><strong>Concluído em:</strong> Agosto/2025 </p>
-                    <div class="repo-link">
-                        <a href="assets/Certificado POO Fun.Bradesco.pdf" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-certificate"></i> Ver Certificado
-                        </a>
+                    <h3>DIO - Bootcamp Riachuelo de Cybersecurity</h3>
+                    <div class="project-meta">
+                        <span class="project-badge">Segurança Ofensiva & Defensiva</span>
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>Dados com Python</h3>
-                    <p>Através de uma imersão prática, utilizei Python e bibliotecas como Pandas e
-                        Matplotlib para realizar a análise exploratória de dados.
-                        Desenvolvi habilidades em tratamento de bases de dados, plotagem de gráficos estatísticos
-                        e extração de insights valiosos a partir de grandes conjuntos de informações.</p>
-                    <p class="theme-subtitle"><strong>Concluído em:</strong> Fevereiro/2026 </p>
-                    <div class="repo-link">
-                        <a href="assets/Alura_Dados_Python.pdf" target="_blank" rel="noopener noreferrer">
-                            <i class="fas fa-certificate"></i> Ver Certificado
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>Bootcamp Riachuelo de Cybersecurity</h3>
-
                     <p>
-                        Bootcamp intensivo de 40 horas voltado aos fundamentos de segurança da informação,
-                        abordando Linux, redes, virtualização, hacking ético, segurança ofensiva e defensiva,
-                        além de aplicações de IA e engenharia de prompts em contextos de cibersegurança.
+                        Formação focada em construir uma base sólida em Linux e máquinas virtuais, fundamentos de redes e segurança, evoluindo para hacking ético, identificando vulnerabilidades e aplicando boas práticas de proteção — tudo com uma trilha atualizada que inclui IA e engenharia de prompts para acelerar a aprendizagem.
                     </p>
-
                     <p>
-                        Durante a formação, desenvolvi projetos práticos envolvendo auditoria de senhas com
-                        Medusa e Hydra, simulações educacionais de ransomware e keylogger em Python e estudos
-                        aplicados com IA utilizando o Google NotebookLM.
+                        Conteúdo completo e alinhado ao dia a dia da segurança ofensiva e defensiva, com aulas, desafios e projetos simulando cenários reais (de varredura de rede a análises e mitigação de ataques cibernéticos).
                     </p>
-
-                    <p>
-                        A experiência proporcionou contato com ambientes controlados de pentest, análise de
-                        vulnerabilidades, mitigação de ataques e boas práticas de segurança em cenários próximos
-                        ao mercado.
-                    </p>
-
                     <p class="theme-subtitle">
                         <strong>Concluído em:</strong> Maio/2026
                     </p>
-
                     <div class="repo-link">
-                        <a href="assets/Bootcamp_Riachuelo-Cyberseguranca.pdf" target="_blank"
-                            rel="noopener noreferrer">
+                        <button type="button" class="btn-open-cert"
+                            data-cert-src="assets/certificates/DIO-Bootcamp_Riachuelo-Cyberseguranca.pdf"
+                            data-cert-title="Bootcamp Riachuelo de Cybersecurity">
                             <i class="fas fa-certificate"></i> Ver Certificado
-                        </a>
+                        </button>
                     </div>
                 </div>
+
+                <div class="project-card">
+                    <h3>DIO - Bootcamp Sem Parar / Corpay</h3>
+                    <div class="project-meta">
+                        <span class="project-badge">IA Generativa & Nuvem Azure</span>
+                    </div>
+                    <p>
+                        Treinamento prático na utilização de Inteligência Artificial Generativa para potencializar a produtividade e criar soluções aplicadas ao mercado, conectando fundamentos de IA, Engenharia de Prompt, LLMs, copilotos inteligentes, agentes de IA e automação de tarefas.
+                    </p>
+                    <p>
+                        Desenvolvimento de habilidades voltadas à resolução de problemas com IA Generativa, serviços essenciais de nuvem com Microsoft Azure e construção de APIs em Node.js e TypeScript integradas a agentes autônomos por meio de desafios práticos.
+                    </p>
+                    <p class="theme-subtitle">
+                        <strong>Concluído em:</strong> Julho/2026
+                    </p>
+                    <div class="repo-link">
+                        <button type="button" class="btn-open-cert"
+                            data-cert-src="assets/certificates/DIO-Bootcamp_Sem-Parar-Corpay.pdf"
+                            data-cert-title="Bootcamp Sem Parar / Corpay — IA Generativa">
+                            <i class="fas fa-certificate"></i> Ver Certificado
+                        </button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>DIO - Bootcamp Jornada para o Futuro</h3>
+                    <div class="project-meta">
+                        <span class="project-badge">Back-End & APIs</span>
+                    </div>
+                    <p>
+                        Formação prática voltada ao desenvolvimento backend com Node.js e TypeScript, criação de APIs REST profissionais e fundamentos modernos de integração.
+                    </p>
+                    <p>
+                        Desenvolvimento de projetos práticos incluindo o <strong>Simulador do Mario Kart</strong> e <strong>APIs da Fórmula 1 e Champions League</strong>, aplicando conceitos de modularização, NPM, programação assíncrona e boas práticas de engenharia de software.
+                    </p>
+                    <p class="theme-subtitle">
+                        <strong>Concluído em:</strong> Julho/2026
+                    </p>
+                    <div class="repo-link">
+                        <button type="button" class="btn-open-cert"
+                            data-cert-src="assets/certificates/DIO-Bootcamp_Jornada-para-o-Futuro.pdf"
+                            data-cert-title="Bootcamp Jornada para o Futuro (Back-End)">
+                            <i class="fas fa-certificate"></i> Ver Certificado
+                        </button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>TIC Trilhas - Desenvolvendo em Node.js</h3>
+                    <div class="project-meta">
+                        <span class="project-badge">Node.js & APIs Back-End</span>
+                    </div>
+                    <p>
+                        Trilha destinada ao aprofundamento prático em desenvolvimento back-end e criação de APIs, abordando desde conceitos fundamentais até técnicas avançadas com uma abordagem prática e aplicada.
+                    </p>
+                    <p>
+                        Fornece compreensão sólida das práticas e ferramentas essenciais para atuar em projetos complexos e estruturar aplicações back-end robustas com confiança.
+                    </p>
+                    <p class="theme-subtitle">
+                        <strong>Concluído em:</strong> Agosto/2026
+                    </p>
+                    <div class="repo-link">
+                        <button type="button" class="btn-open-cert"
+                            data-cert-src="assets/certificates/Nicolas Kauê Silva - Desenvolvendo em Node.js.pdf"
+                            data-cert-title="Desenvolvendo em Node.js — Venturus">
+                            <i class="fas fa-certificate"></i> Ver Certificado
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -374,7 +433,7 @@
                 novos projetos.</p>
             <ul class="contact-links">
                 <li>
-                    <a href="https://www.linkedin.com/in/nicolas-silva-devcode" target="_blank">
+                    <a href="https://www.linkedin.com/in/nicolas-k-silva/" target="_blank">
                         <i class="fab fa-linkedin"></i>
                         <span>LinkedIn</span>
                     </a>
@@ -389,6 +448,27 @@
         </section>
 
     </main>
+
+    <!-- Modal de Visualização de Certificados -->
+    <div id="cert-modal" class="cert-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="cert-modal-container">
+            <div class="cert-modal-header">
+                <h3 id="cert-modal-title">Visualizar Certificado</h3>
+                <button type="button" id="cert-modal-close-btn" class="cert-modal-close" aria-label="Fechar visualizador">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cert-modal-body">
+                <iframe id="cert-modal-iframe" class="cert-modal-iframe" src="" title="Certificado"></iframe>
+            </div>
+            <div class="cert-modal-footer">
+                <a id="cert-modal-download" href="#" target="_blank" rel="noopener noreferrer" class="btn-cert-download">
+                    <i class="fas fa-external-link-alt"></i> Abrir em nova guia / Baixar
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script src="scripts/theme-switcher.js" defer></script>
 </body>
 
